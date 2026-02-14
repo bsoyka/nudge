@@ -1,0 +1,28 @@
+
+
+.check{
+	color: #26a269;
+}
+.question-mark{
+	color: #ffbe6f;
+}
+.x{
+	color: #f66151;
+
+}
+
+.habit-box{
+	transition: .3s ease all;
+	background-color: #504746;
+	font-size: 2rem;
+	height: 200px;
+	padding: 20px;
+	width: 200px;
+	border: 5px solid black;
+	border-radius: 30px;
+}
+
+.habit-box:hover{
+	transition: .3s ease all;
+	box-shadow: 5px 5px black;
+}
