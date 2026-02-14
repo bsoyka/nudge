@@ -1,11 +1,14 @@
-"use client";
-import Link from "next/link";
+//'use client';
+import Link from "next/link"
+import "../styles/nav-bar.css";
 
-export default function () {
-  return (
-    <div>
-      <Link href={{ pathname: "/" }}> Home </Link>
-      <Link href={{ pathname: "/page1" }}> Other </Link>
-    </div>
-  );
+function NavBar() {
+	return( <div className="nav-bar">
+		<Link className="page-link" href= {{pathname: "/"}}> Home </Link>
+		<Link className="page-link" href= {{pathname: "/page1"}}> Other Page </Link>
+	</div>
+	);
 }
+
+
+export default NavBar;
