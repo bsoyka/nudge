@@ -1,10 +1,13 @@
 import NavBar from "../components/NavBar";
+import "../styles/page1.css";
+import "../globals.css";
+
 export default function() {
 
 	return(
 		<>
 			<NavBar/>
-			<h1> Test page </h1>
+			<p> Test page </p>
 		</>
 	);
 
