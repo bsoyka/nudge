@@ -22,8 +22,8 @@ function NavBar() {
           className="h-full w-auto"
         />
       </Link>
-      <NavBarLink path="/" name="Dashboard" />
-      <NavBarLink path="/page1" name="Other Page" />
+      <NavBarLink path="/dashboard" name="Dashboard" />
+      <NavBarLink path="/leaderboard" name="Leaderboard" />
     </nav>
   );
 }
