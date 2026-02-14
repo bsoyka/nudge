@@ -1,24 +1,9 @@
 @import "tailwindcss";
 
-:root {
-    --background: #1c1d21;
-    --font_color: #f1e3e4;
-    --border_color: #fcd7ad;
-}
-
-html,
-body {
-    display: inline;
-
-    margin: 0px;
-    padding: 0px;
-    width: 100vw;
-    height: 100vh;
-    background: var(--background);
-    color: var(--font_color);
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-main {
-    padding: 20px;
+@theme {
+    --color-primary: #4d80b6;
+    --color-secondary: #f45b69;
+    --color-dark: #6b2737;
+    --color-background: #0b323e;
+    --color-light: #fafffa;
 }
