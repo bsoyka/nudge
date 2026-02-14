@@ -1,34 +1,32 @@
+"use client";
 import "../styles/habitbox.css";
+import {Habit, Status} from "../constants"
 import { Check, X, CircleQuestionMark} from "lucide-react";
+import { useState } from "react";
 
-enum status{
-	PENDING,
-	FINISHED,
-	INCOMPLETE
-}
-function getHabitStatus() : status{ //API CALL to backend
-	return status.FINISHED;
+interface HabitBoxProps{
+	habit : Habit,
 }
 
-function getHabitName() : string{
-	//API CALL
-	return "Habit";
-}
+function HabitBox(habitProp : HabitBoxProps){
+	const [getStatus, setStatus] = useState(habitProp.habit.status);
 
-
-function HabitBox(){
-
+	const handlePendingRequest = () =>
+	{
+		setStatus(Status.PENDING);
+		//API CALL
+	}
 	return(
 		<div className="habit-box">
-			<h1 className="habit-name"> {getHabitName()}</h1>
-
-			{getHabitStatus() == status.FINISHED ? <Check className="check"/> 
-				: getHabitStatus() == status.PENDING 
-					? <CircleQuestionMark className="question-mark" /> 
-				: <X className="x"/>}
+			<h1 className="habit-name"> {habitProp.habit.name}</h1>
+			<h3 className="streak-text">Streak: {habitProp.habit.streak}</h3>
+			<h3 className="streak-text">Auditor: {habitProp.habit.auditor}</h3>
+			{getStatus == Status.FINISHED ? <Check id="check" className="status-box"/> 
+				: getStatus == Status.PENDING 
+					? <CircleQuestionMark id={"question-mark"} className="status-box" /> 
+				: <X id="x" className="status-box" onClick={handlePendingRequest}/>}
 		</div>
 	);
 }
-
 
 export default HabitBox;
