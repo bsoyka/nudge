@@ -1,13 +1,10 @@
 import { getAuth } from "firebase/auth";
 import { db } from "./auth";
 import {
-  addDoc,
   arrayRemove,
   arrayUnion,
-  collection,
   doc,
   getDoc,
-  setDoc,
   updateDoc,
 } from "firebase/firestore";
 

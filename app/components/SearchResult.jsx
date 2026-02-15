@@ -1,4 +1,3 @@
-import React from "react";
 import "./SearchResults.css";
 
 export const SearchResult = () => {

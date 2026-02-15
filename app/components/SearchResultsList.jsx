@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./SearchResultsList.css";
 
 export const SearchResultsList = ({ results }) => {

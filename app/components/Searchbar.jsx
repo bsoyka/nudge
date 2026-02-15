@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { FaSearch } from "react-icons/fa";
 import "./SearchBar.css";
