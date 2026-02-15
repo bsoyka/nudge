@@ -1,20 +1,16 @@
-"use client";"use client"
-import React, { useState, useEffect } from "react";
-import {SearchBar} from "../components/Searchbar";
-import {SearchResultsList} from "../components/SearchResultsList";
+"use client";
+"use client";
+import React from "react";
+import { SearchBar } from "../components/Searchbar";
 import NavBar from "../components/NavBar";
 
-export default function() {
-
-  const[results, setResults] = useState([]);
+export default function SearchBarPage() {
   return (
     <>
       <NavBar />
-      <div className ="search-bar-container">
-			<SearchBar setResults={setResults}/>
-			<SearchResultsList results={results} />
-		</div>
-
+      <div className="search-bar-container">
+        <SearchBar />
+      </div>
     </>
   );
-};
+}

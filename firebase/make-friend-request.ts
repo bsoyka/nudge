@@ -1,5 +1,5 @@
 import { getAuth } from "firebase/auth";
-import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { db } from "./auth";
 
 export const makeFriendRequest = async (friendUid: string) => {

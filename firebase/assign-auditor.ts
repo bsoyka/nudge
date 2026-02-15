@@ -1,15 +1,6 @@
-import { getAuth, User } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { db } from "./auth";
-import {
-  arrayUnion,
-  collection,
-  doc,
-  getDoc,
-  getDocs,
-  query,
-  updateDoc,
-  where,
-} from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 
 export const assignAuditor = async (hid: string, auditorUid: string) => {
   // get current user
