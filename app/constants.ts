@@ -7,8 +7,8 @@ export interface User{
 }
 
 export interface Friend{
-	id: number;
-	name: string;
+	uid: string;
+	username: string;
 	score: number;
 }
 

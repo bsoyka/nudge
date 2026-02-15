@@ -17,10 +17,32 @@
 
 .add-habit-modal input{
 	width: 80%;
+	font-size: 2rem;
 	color: var(--color-light);
 	background-color: var(--color-dark);
 	border: var(--color-light) 3px solid;
 }
+
+.add-habit-modal button{
+	transition: .5s ease all;
+	font-size: 2rem;
+	padding: .5vh;
+	border: .4vh var(--color-primary-dark) solid;
+	background-color: var(--color-dark);
+	color: var(--color-light);
+	cursor: pointer;
+	display: flex;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%);
+	width: fit-content;
+}
+
+.add-habit-modal button:hover{
+	transition: .5s ease all;
+	box-shadow: 5px 5px  black;
+}
+
 .add-habit-modal h1{
 	width: fit-content;
 	padding: 5px;
@@ -35,9 +57,12 @@
 	padding: 1vh;
 }
 
+.selected-friend-profile,
 .friend-profile:hover{
 	background-color: var(--color-primary-dark);
 	box-shadow: 5px 5px var(--color-dark);
+	border: solid var(--color-dark) 0.5vh;
+	padding: 1vh;
 	cursor: pointer;
 	transition: .3s ease all;
 }
@@ -50,6 +75,8 @@
 	grid-template-rows: repeat(2, auto);
 	gap: 20px
 }
+
+
 
 
 
