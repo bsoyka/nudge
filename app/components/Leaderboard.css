@@ -54,7 +54,7 @@
     color: var(--color-light);
     font-weight: bold;
     background-color: var(--color-secondary);
-    padding: .3vw .3vw;
+    padding: 0.3vw 0.3vw;
     border-radius: 5px;
     margin-left: 7px;
 }

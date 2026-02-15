@@ -1,16 +1,15 @@
-.div-div{
-	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
-	margin: 2vh;
+.div-div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 2vh;
 }
 
-.h1h1{
-	margin: 2vh;
-	font-size: 5vh;
-	font-weight: 500;
-	border-bottom: .4vh solid black;
-
+.h1h1 {
+    margin: 2vh;
+    font-size: 5vh;
+    font-weight: 500;
+    border-bottom: 0.4vh solid black;
 }
 
 .friend-section {
@@ -25,32 +24,30 @@
     height: 100%;
 }
 
-.friend-request{
-	display: flex;
-	justify-content: flex-start;
-	gap: 20px;
-	align-items: center;
-	transition: .2s ease all;
-	font-size: 2rem;
-	padding: 20px;
-	width: auto;
-	border: 5px solid var(--color-dark);
-	border-radius: 30px;
+.friend-request {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: center;
+    transition: 0.2s ease all;
+    font-size: 2rem;
+    padding: 20px;
+    width: auto;
+    border: 5px solid var(--color-dark);
+    border-radius: 30px;
 }
 
-
-.friend-request .profile-photo{
-	height: 80px;
-	width: 80px;
+.friend-request .profile-photo {
+    height: 80px;
+    width: 80px;
 }
 
-.friend-request h1{
-	font-size: 3rem;
+.friend-request h1 {
+    font-size: 3rem;
 }
 
-.friend-request:hover{
-	transition: .3s ease all;
-	border-color: var(--color-dark);
-	box-shadow: 5px 5px var(--color-dark);
+.friend-request:hover {
+    transition: 0.3s ease all;
+    border-color: var(--color-dark);
+    box-shadow: 5px 5px var(--color-dark);
 }
-

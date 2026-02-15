@@ -1,26 +1,25 @@
-.status-box{
-	transition: .3s ease;
-	width: 150px;
-	height: 150px;
-	cursor: pointer;
-	border-radius: 30px;
+.status-box {
+    transition: 0.3s ease;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    border-radius: 30px;
 }
 
-.status-box:hover{
-	border-radius: 30px;
-	transition: .3s ease;
-	border: 3px solid;
+.status-box:hover {
+    border-radius: 30px;
+    transition: 0.3s ease;
+    border: 3px solid;
 }
 
-#check{
-	color: #26a269;
+#check {
+    color: #26a269;
 }
 
-#question-mark{
-	color: #ffbe6f;
+#question-mark {
+    color: #ffbe6f;
 }
 
-#square{
-	color: #f66151;
-
+#square {
+    color: #f66151;
 }

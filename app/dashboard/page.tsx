@@ -8,7 +8,6 @@ export default function DashboardPage() {
     <>
       <NavBar />
       <Dashboard />
-
       <Footer />
     </>
   );

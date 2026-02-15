@@ -6,20 +6,10 @@ import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 import Button from "./components/Button";
 import Footer from "./components/Footer";
-import { getPendingHabits } from "@/firebase/get-pending-habits";
-import { updateHabitStatus } from "@/firebase/edit-habit";
 
 export default function Home() {
   const auth = getAuth();
   const [user, setUser] = useState<User | null>(null);
-
-  async function handleGetPending() {
-    try {
-      console.log(getPendingHabits())
-    } catch (error: any) {
-      console.error(error.messege)
-    }
-  }
 
   async function handleClick() {
     try {
@@ -28,14 +18,6 @@ export default function Home() {
       console.error(error.message);
     }
   }
-
-  //  async function handleChangeStatus() {
-  //   try {
-  //     updateHabitStatus();
-  //   } catch (error: any) {
-  //     console.error(error.message);
-  //   }
-  // }
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -57,7 +39,9 @@ export default function Home() {
         <main className="flex flex-col items-center justify-center max-w-3xl m-auto p-10">
           <h1 className="text-3xl font-bold">Hello, {username}!</h1>
 
-          <Button onClick={() => signOut(auth)} className="mt-5">Sign out</Button>
+          <Button onClick={() => signOut(auth)} className="mt-5">
+            Sign out
+          </Button>
 
           <div className="text-lg mt-4">
             Pick a habit. Add a friend. Start tracking. They’ll verify your
@@ -71,11 +55,6 @@ export default function Home() {
             <strong>Welcome to the Nudge community!</strong>
           </div>
         </main>
-
-        <Button onClick={handleGetPending} className="mt-5">get pending</Button>
-        <Button onClick={handleChangeStatus} className="mt-5">change status</Button>
-
-
 
         <Footer />
       </>

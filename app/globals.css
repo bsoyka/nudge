@@ -1,30 +1,29 @@
 @import "tailwindcss";
-body{
-	font-size:1vw;
-	background-color: var(--color-background-secondary);
+body {
+    font-size: 1vw;
+    background-color: var(--color-background-secondary);
 }
 @theme {
-
     --color-primary: #114b5f;
     --color-primary-dark: #0b4153;
     --color-secondary: #0b908c;
     --color-secondary-dark: #007f7b;
-	--color-background: #e4e4e4;
-	--color-background-secondary: #fafafa;
+    --color-background: #e4e4e4;
+    --color-background-secondary: #fafafa;
     --color-light: #fafff9;
     --color-dark: #171a1d;
 }
 
-@property --position{
+@property --position {
     syntax: "<number>";
-    inherits:true;
+    inherits: true;
     initial-value: 0;
 }
 
-@property --quantity{
-    syntax:"<number>";
-    inherits:true;
-    initial-value:1;
+@property --quantity {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 1;
 }
 
 /* Regenerate utilities to ensure custom colors are available */

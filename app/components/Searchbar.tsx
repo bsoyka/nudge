@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import "./SearchBar.css";
@@ -19,9 +20,9 @@ export const SearchBar = () => {
       } else {
         setUserList([]);
       }
-    }
+    };
 
-    fetchNames()
+    fetchNames();
   }, [input]);
 
   function handleTextChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -29,12 +30,12 @@ export const SearchBar = () => {
   }
 
   async function handleFriendRequest(friendUid: string) {
-    console.log("friend request button pressed")
+    console.log("friend request button pressed");
     try {
       // test to add ben
-      makeFriendRequest(friendUid)
+      makeFriendRequest(friendUid);
     } catch (error: any) {
-      console.error(error.message)
+      console.error(error.message);
     }
   }
 
@@ -50,12 +51,15 @@ export const SearchBar = () => {
       </div>
       <div>
         {userList?.map((user) => (
-          <button key={user.uid} onClick={() => handleFriendRequest(user.uid)} className="cursor-pointer">
-            <SearchCard username={user.username} photo={user.photo}/>
+          <button
+            key={user.uid}
+            onClick={() => handleFriendRequest(user.uid)}
+            className="cursor-pointer"
+          >
+            <SearchCard username={user.username} photo={user.photo} />
           </button>
         ))}
       </div>
     </div>
-
   );
 };

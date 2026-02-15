@@ -9,17 +9,16 @@ import { auth } from "@/firebase/auth";
 
 function PendingBoxes() {
   const [getPending, setPending] = useState<Habit[]>([]);
-	const fetchPending = async () => {
+  const fetchPending = async () => {
     const serverPending = await getPendingHabits();
     if (serverPending != null) {
-		setPending(serverPending);
-			
+      setPending(serverPending);
     }
     return null;
   };
   useEffect(() => {
-onAuthStateChanged(auth ,(n) => fetchPending());}, []);
-
+    onAuthStateChanged(auth, (n) => fetchPending());
+  }, []);
 
   return (
     <div className="pending-boxes">

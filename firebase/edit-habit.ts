@@ -111,10 +111,7 @@ export const updateHabitStatus = async (hid: string, newStatus: number) => {
       throw new Error("user does not exist");
     }
 
-    const q = query(
-      collectionGroup(db, "habits"),
-      where("hid", "==", hid)
-    )
+    const q = query(collectionGroup(db, "habits"), where("hid", "==", hid));
 
     const snap = await getDocs(q);
     // const habitRef = doc(db, "users", ownerUid, "habits", hid);
@@ -132,20 +129,20 @@ export const updateHabitStatus = async (hid: string, newStatus: number) => {
     // const habitSnap = await getDoc(habitRef);
 
     // if (habitSnap.exists()) {
-      // const auditorUid = habitSnap.data().auditor;
-      // const auditorRef = doc(db, "users", auditorUid);
+    // const auditorUid = habitSnap.data().auditor;
+    // const auditorRef = doc(db, "users", auditorUid);
 
-      // if the status becomes pending, add it to the auditor's pending list
-      if (newStatus == 1) {
-        await updateDoc(auditorRef, {
-          pendingHabits: arrayUnion(hid),
-        });
+    // if the status becomes pending, add it to the auditor's pending list
+    if (newStatus == 1) {
+      await updateDoc(auditorRef, {
+        pendingHabits: arrayUnion(hid),
+      });
 
-        // if the status becomes complete, remove it from the auditor's pending list
-      } else if (newStatus == 2) {
-        await updateDoc(auditorRef, {
-          pendingHabits: arrayRemove(hid),
-        });
+      // if the status becomes complete, remove it from the auditor's pending list
+    } else if (newStatus == 2) {
+      await updateDoc(auditorRef, {
+        pendingHabits: arrayRemove(hid),
+      });
       // }
     } else {
       throw new Error("auditor does not exist");

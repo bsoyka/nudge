@@ -2,9 +2,6 @@ type ScoreItemProps = {
   user_id: string;
   streak: number;
 };
-{
-  /* show a singular score */
-}
 
 const ScoreItem = (props: ScoreItemProps): any => {
   const { user_id, streak } = props;

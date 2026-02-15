@@ -12,11 +12,10 @@ export default function SearchBarPage() {
       <div className="search-bar-container">
         <SearchBar />
       </div>
-	  <h1 className="h1h1"> Friend Requests: </h1>
-	  <div className= "div-div">
-		<FriendRequestArea/>
-	  </div>
-		
+      <h1 className="h1h1"> Friend Requests: </h1>
+      <div className="div-div">
+        <FriendRequestArea />
+      </div>
     </>
   );
 }

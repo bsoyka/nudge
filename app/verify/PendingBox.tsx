@@ -13,7 +13,6 @@ interface PendingBoxProps {
 }
 
 function PendingBox({ habit, getPending, setPending }: PendingBoxProps) {
-
   updateHabitStatus(habit.hid, Status.FINISHED);
   const handleClickAccept = () => {
     setPending(
@@ -27,7 +26,7 @@ function PendingBox({ habit, getPending, setPending }: PendingBoxProps) {
   };
 
   const handleClickDecline = () => {
-	updateHabitStatus(habit.hid, Status.INCOMPLETE);
+    updateHabitStatus(habit.hid, Status.INCOMPLETE);
     setPending(
       getPending.filter((pendingHabit: any) => {
         if (pendingHabit.hid == habit.hid) {
@@ -36,7 +35,7 @@ function PendingBox({ habit, getPending, setPending }: PendingBoxProps) {
         return true;
       }),
     );
-      };
+  };
 
   return (
     <div className="pending-box">

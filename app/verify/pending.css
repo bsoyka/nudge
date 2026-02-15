@@ -1,23 +1,21 @@
-.pending-boxes{
-	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
-	flex-wrap: wrap;
-
+.pending-boxes {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
-.pending-box{
-	transition: .2s ease all;
-	font-size: 2rem;
-	padding: 20px;
-	width: 300px;
-	border: 5px solid var(--color-dark);
-	border-radius: 30px;
+.pending-box {
+    transition: 0.2s ease all;
+    font-size: 2rem;
+    padding: 20px;
+    width: 300px;
+    border: 5px solid var(--color-dark);
+    border-radius: 30px;
 }
 
-.pending-box:hover{
-	transition: .3s ease all;
-	border-color: var(--color-dark);
-	box-shadow: 5px 5px var(--color-dark);
+.pending-box:hover {
+    transition: 0.3s ease all;
+    border-color: var(--color-dark);
+    box-shadow: 5px 5px var(--color-dark);
 }
-

@@ -1,9 +1,17 @@
 import { getAuth } from "firebase/auth";
-import { collection, collectionGroup, doc, getDoc, getDocs, query, where } from "firebase/firestore";
+import {
+  collection,
+  collectionGroup,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { db } from "./auth";
 import { Habit } from "@/app/constants";
 
-export const getPendingHabits = async () : Promise<Habit[] | undefined> => {
+export const getPendingHabits = async (): Promise<Habit[] | undefined> => {
   // get current user
   const auth = getAuth();
   const user = auth.currentUser;
@@ -14,17 +22,16 @@ export const getPendingHabits = async () : Promise<Habit[] | undefined> => {
   }
 
   try {
-
-    let habitList : Habit[] = [];
+    let habitList: Habit[] = [];
 
     const userRef = doc(db, "users", user.uid);
-    const userSnap = await getDoc(userRef)
+    const userSnap = await getDoc(userRef);
 
-    let habitHids : string[] = []
-    let friendsList : string[] = []
-    if (userSnap.exists()) {    
-      habitHids = userSnap.data().pendingHabits
-      friendsList = userSnap.data().friends
+    let habitHids: string[] = [];
+    let friendsList: string[] = [];
+    if (userSnap.exists()) {
+      habitHids = userSnap.data().pendingHabits;
+      friendsList = userSnap.data().friends;
     }
 
     // console.log("habits id", habitHids)
@@ -33,14 +40,14 @@ export const getPendingHabits = async () : Promise<Habit[] | undefined> => {
     for (const habitHid of habitHids) {
       const q = query(
         collectionGroup(db, "habits"),
-        where("hid", "==", habitHid)
+        where("hid", "==", habitHid),
       );
 
       const snap = await getDocs(q);
       // console.log(snap)
 
       snap.forEach((habit) => {
-        const habitData = habit.data()
+        const habitData = habit.data();
         if (habitHid == habitData.hid) {
           const habitItem: Habit = {
             hid: habitData.hid,
@@ -49,17 +56,15 @@ export const getPendingHabits = async () : Promise<Habit[] | undefined> => {
             viewers: habitData.viewers,
             auditor: habitData.auditor,
             status: habitData.status,
-            owner: habitData.owner
+            owner: habitData.owner,
           };
           habitList.push(habitItem);
         }
-      })
+      });
     }
 
-    return habitList
-    
+    return habitList;
   } catch (error: any) {
-    console.error(error.code, error.message)
+    console.error(error.code, error.message);
   }
-  
 };

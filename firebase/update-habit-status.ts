@@ -38,11 +38,10 @@ export const updateHabitStatus = async (hid: string, newStatus: number) => {
         await updateDoc(auditorRef, {
           pendingHabits: arrayUnion(hid),
         });
-        
-      // if the status becomes complete, remove it from the auditor's pending list
-      // or if the status is denied, move it back to needs to be done
-      } else if (newStatus == 2 || newStatus == 0) {
 
+        // if the status becomes complete, remove it from the auditor's pending list
+        // or if the status is denied, move it back to needs to be done
+      } else if (newStatus == 2 || newStatus == 0) {
         await updateDoc(auditorRef, {
           pendingHabits: arrayRemove(hid),
         });

@@ -35,21 +35,19 @@ function FriendsListSelector({
   getSelectedFriend,
   setSelectedFriend,
 }: SelectorProps) {
-
   const [getFriend, setFriends] = useState<Friend[]>([]);
-  
-	const fetchFriend= async () => {
-			const promise = await getFriends();
-			if(promise == null){
-				setFriends([]);
-			}
-			else{
-				setFriends(promise);
-			}
-		};
-	useEffect(() =>{
-		onAuthStateChanged(auth ,(n) => (fetchFriend()));}
-	, []);
+
+  const fetchFriend = async () => {
+    const promise = await getFriends();
+    if (promise == null) {
+      setFriends([]);
+    } else {
+      setFriends(promise);
+    }
+  };
+  useEffect(() => {
+    onAuthStateChanged(auth, (n) => fetchFriend());
+  }, []);
 
   return (
     <div className="friends-list">
