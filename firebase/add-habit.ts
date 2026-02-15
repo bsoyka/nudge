@@ -2,7 +2,7 @@ import { getAuth } from "firebase/auth";
 import { db } from "./auth";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 
-export const addHabit = async (habitName: string) => {
+export const addHabit = async (habitName: string) : Promise<string | undefined> => {
   // get current user
   const auth = getAuth();
   const user = auth.currentUser;
@@ -20,7 +20,7 @@ export const addHabit = async (habitName: string) => {
     const habitRef = collection(userRef, "habits")
 
     // add habit to the user's habit collection
-    await addDoc(habitRef, {
+    const docRef = await addDoc(habitRef, {
       habitName: habitName,
       streak: 0,
       viewers: [],
@@ -29,6 +29,8 @@ export const addHabit = async (habitName: string) => {
     });
 
     console.log("habit created:", habitName)
+
+    return docRef.id;
 
   } catch (error: any) {
     console.error("error logging in with google", error.code, error.message)
