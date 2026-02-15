@@ -40,6 +40,6 @@
 	box-shadow: 5px 5px var(--color-dark);
 }
 
-h1{
+.habit-box h1 {
     border-bottom: 3px var(--color-dark) solid;
 }

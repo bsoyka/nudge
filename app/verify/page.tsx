@@ -1,5 +1,4 @@
 import NavBar from "../components/NavBar";
-import "../globals.css";
 import "../styles/dashboard.css";
 import HabitBox from "../components/HabitBox";
 import { Habit, Status } from "../constants";
@@ -19,7 +18,7 @@ function getHabitList(): Habit[] {
       status: Status.INCOMPLETE,
       streak: 6,
       auditor: "Ethan",
-      id: 1,
+      id: 2,
       uid: 10,
     },
     {
@@ -27,7 +26,7 @@ function getHabitList(): Habit[] {
       status: Status.FINISHED,
       streak: 22,
       auditor: "Ben",
-      id: 10,
+      id: 3,
       uid: 10,
     },
   ];
@@ -49,7 +48,7 @@ export default function VerifyPage() {
 
         <div className="dashboard">
           {getHabitList().map((habit) => (
-            <HabitBox habit={habit} key={habit.name} />
+            <HabitBox habit={habit} key={habit.id} />
           ))}
         </div>
       </main>
