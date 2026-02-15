@@ -2,30 +2,30 @@
 import Link from "next/link";
 import ModalTriggerButton from "./ModalTriggerButton";
 import { getHabits } from "@/firebase/get-habits";
+import { onAuthStateChanged } from "firebase/auth";
 import { getPendingHabits } from "@/firebase/get-pending-habits";
 import { useEffect, useState } from "react";
 import {Leaderboard} from "../components/Leaderboard";
 import HabitBox from "../components/HabitBox";
 import { Habit } from "../constants";
 import "../styles/dashboard.css";
+import {auth} from "@/firebase/auth"
 import "../globals.css";
-import FriendRequestArea from "../social/FriendRequestArea";
 import PendingBoxes from "../verify/PendingBoxes";
 
 function Dashboard(){
-	let [getUserHabits, setUserHabits] = useState<Habit[]>([]);
-	useEffect(() => {
+	const [getUserHabits, setUserHabits] = useState<Habit[]>([])
 		const fetchHabits = async () => {
 			const promise = await getHabits();
 			if(promise == null){
-				
 			}
 			else{
 				setUserHabits(_ => promise);
 			}
 		}
-		fetchHabits();
-	}, []); 
+	useEffect(() =>{
+		onAuthStateChanged(auth ,(n) => fetchHabits());}
+	, []);
 	let [getNumPending, setNumPending] = useState<number>();
 	useEffect(() => {
 		const fetchPending = async () => {
@@ -34,7 +34,8 @@ function Dashboard(){
 				setNumPending(0);
 			}
 			else{
-				setNumPending(_ => promise);
+				console.log(promise);
+				setNumPending(promise.length);
 			}
 		}
 		fetchPending();

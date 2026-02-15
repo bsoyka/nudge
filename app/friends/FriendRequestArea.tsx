@@ -7,7 +7,9 @@ import { addFriend } from "@/firebase/add-friend";
 import "./social.css";
 import "../styles/checkbox.css"
 import { Friend } from "../constants";
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "@/firebase/auth";
 
 interface FriendRequestProps{
 	friend : Friend;
@@ -17,18 +19,15 @@ function FriendRequestArea(){
 	const [getFriendRequest, setFriendRequests] = useState<Friend[]>([]);
 
 
-
-
-	useEffect(() => {
 	const handleGetFriends = async () => {
 		const serverFriends = await getFriendRequests();
 		if(serverFriends != null){
 			setFriendRequests(serverFriends);
 		}
-		handleGetFriends();
 	};
-    handleGetFriends();
-  }, []);
+	useEffect(() =>{
+		onAuthStateChanged(auth ,(n) => handleGetFriends());}
+	, []);
 	const FriendRequest = ({friend} : FriendRequestProps) => {
 		const acceptFriendRequest = () => {
 						setFriendRequests(getFriendRequest.filter((item : Friend) => {
@@ -64,7 +63,7 @@ function FriendRequestArea(){
 
 	return(
 		<div className="friend-section">
-			{getFriendRequest.map((f) => <FriendRequest friend={f}/>)}
+			{getFriendRequest.map((f) => <FriendRequest key={f.uid} friend={f}/>)}
 		</div>
 	);
 }
