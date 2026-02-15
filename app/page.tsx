@@ -33,56 +33,56 @@ export default function Home() {
   }
 
   async function handleAddFriendClick() {
-    console.log("add friend pressed")
+    console.log("add friend pressed");
     try {
       // test to add ben
-      addFriend("CPGh2ZUU48WCz59iHHSf86Jji4g2")
+      addFriend("CPGh2ZUU48WCz59iHHSf86Jji4g2");
     } catch (error: any) {
-      console.error(error.message)
+      console.error(error.message);
     }
   }
 
   async function handleAssignAuditor() {
-    console.log("auditor assign pressed")
+    console.log("auditor assign pressed");
     const habitId = "Hv514XKg6o3r3PVw7jnu";
-    const auditorUid = "CPGh2ZUU48WCz59iHHSf86Jji4g2"
+    const auditorUid = "CPGh2ZUU48WCz59iHHSf86Jji4g2";
     try {
       // test to add ben
-      assignAuditor(habitId, auditorUid)
+      assignAuditor(habitId, auditorUid);
     } catch (error: any) {
-      console.error(error.message)
+      console.error(error.message);
     }
   }
 
   async function handleUpdateHabitStatus() {
-    console.log("update status pressed")
+    console.log("update status pressed");
     const habitId = "Hv514XKg6o3r3PVw7jnu";
     const newStatus = 1;
     try {
       // test to add ben
-      updateHabitStatus(habitId, newStatus)
+      updateHabitStatus(habitId, newStatus);
     } catch (error: any) {
-      console.error(error.message)
+      console.error(error.message);
     }
   }
 
   async function handleGetFriends() {
-    console.log("getfreinds button pushed")
+    console.log("getfreinds button pushed");
     try {
-      const friends = getFriends()
-      console.log(friends)
+      const friends = getFriends();
+      console.log(friends);
     } catch (error: any) {
-      console.error(error.message)
+      console.error(error.message);
     }
   }
 
   async function handleGetHabits() {
-    console.log("gethabits button pushed")
+    console.log("gethabits button pushed");
     try {
-      const habits = getHabits()
-      console.log(habits)
+      const habits = getHabits();
+      console.log(habits);
     } catch (error: any) {
-      console.error(error.message)
+      console.error(error.message);
     }
   }
 
@@ -110,10 +110,11 @@ export default function Home() {
           <button onClick={handleHabitClick}>Add Habit</button>
           <button onClick={handleAddFriendClick}>Add Ben as friend</button>
           <button onClick={handleAssignAuditor}>Add Ben as auditor</button>
-          <button onClick={handleUpdateHabitStatus}>update shower status</button>
+          <button onClick={handleUpdateHabitStatus}>
+            update shower status
+          </button>
           <button onClick={handleGetFriends}>get friends</button>
           <button onClick={handleGetHabits}>get habits</button>
-
         </main>
       </>
     );
@@ -152,7 +153,6 @@ export default function Home() {
             your habit streaks whenever they may break.
           </div>
         </main>
-        	
       </>
     );
   }

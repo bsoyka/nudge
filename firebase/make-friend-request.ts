@@ -16,10 +16,9 @@ export const makeFriendRequest = async (friendUid: string) => {
     const friendRef = doc(db, "users", friendUid);
 
     await updateDoc(friendRef, {
-      friendRequests: arrayUnion(user.uid)
-    })
-
+      friendRequests: arrayUnion(user.uid),
+    });
   } catch (error: any) {
     console.error("error making friend request", error.code, error.message);
   }
-}
+};
