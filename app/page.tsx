@@ -61,6 +61,7 @@ export default function Home() {
           <h3 className="text-xl font-bold">Get started</h3>
           <button onClick={handleClick}>Sign in with Google</button>
         </main>
+        	
       </>
     );
   }

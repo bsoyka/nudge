@@ -4,9 +4,9 @@ import "../styles/dashboard.css";
 import "../globals.css";
 import HabitBox from "../components/HabitBox";
 import {Habit, Status} from "../constants";
-import {SearchBar} from "../components/Searchbar";
-import {SearchResultsList} from "../components/SearchResultsList";
-import { useState } from "react";
+import {ChartAreaInteractive} from "../components/habitsChart";
+
+
 
 
 const testHabit1 : Habit = {name: "WorkOut", status: Status.PENDING, streak: 1, auditor: "Ben", id: 1, uid: 10};
@@ -28,9 +28,11 @@ export default function() {
 				{getHabitList().map((habit) => <HabitBox habit={habit} key={habit.name} />)}
 				{getHabitList().map((habit) => <HabitBox habit={habit} key={habit.name} />)}
 				{getHabitList().map((habit) => <HabitBox habit={habit} key={habit.name} />)}
-
-
-			</div>		
+			</div>
+			<div className="Chart">
+				  <ChartAreaInteractive/>
+			  </div>	
+	
 		</>
 	);
 

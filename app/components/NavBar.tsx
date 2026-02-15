@@ -24,6 +24,7 @@ function NavBar() {
       </Link>
       <NavBarLink path="/dashboard" name="Dashboard" />
       <NavBarLink path="/leaderboard" name="Leaderboard" />
+      <NavBarLink path="/searchbar" name="Search" />
     </nav>
   );
 }
