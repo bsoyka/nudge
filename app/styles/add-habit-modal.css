@@ -24,7 +24,7 @@
     border: var(--color-light) 3px solid;
 }
 
-.add-habit-modal button {
+.add-habit-modal button{
     transition: 0.5s ease all;
     font-size: 2rem;
     padding: 0.5vh;
@@ -48,7 +48,7 @@
     width: fit-content;
     padding: 5px;
     border-bottom: var(--color-light) 1vh solid;
-    font-size: 5vh;
+    font-size: 4vh;
 }
 
 .friend-profile {
@@ -69,7 +69,7 @@
     border: 3px transparent;
 }
 .plus h1{
-	font-size: 5vh;
+	font-size: 4vh;
     border-radius: 7vh;
     border: 3px transparent;
 }

@@ -1,6 +1,6 @@
 "use client";
-
 import PendingBox from "./PendingBox";
+import "./pending.css";
 import { useEffect, useState } from "react";
 import { getPendingHabits } from "@/firebase/get-pending-habits";
 import { Habit } from "../constants";
@@ -21,7 +21,7 @@ onAuthStateChanged(auth ,(n) => fetchPending());}, []);
 
 
   return (
-    <div className="dashboard">
+    <div className="pending-boxes">
       {getPending.map((habit) => (
         <PendingBox
           getPending={getPending}
