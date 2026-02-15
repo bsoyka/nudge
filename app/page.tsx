@@ -4,14 +4,8 @@ import { loginWithGoogle } from "@/firebase/login-google";
 import { getAuth, onAuthStateChanged, signOut, User } from "firebase/auth";
 import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
-import { addHabit } from "@/firebase/add-habit";
-import { addFriend } from "@/firebase/add-friend";
-import { assignAuditor } from "@/firebase/assign-auditor";
-import { updateHabitStatus } from "@/firebase/update-habit-status";
-import { getFriends } from "@/firebase/get-friends";
 import Button from "./components/Button";
 import Footer from "./components/Footer";
-import { getHabits } from "@/firebase/get-habits";
 
 export default function Home() {
   const auth = getAuth();
@@ -20,68 +14,6 @@ export default function Home() {
   async function handleClick() {
     try {
       loginWithGoogle();
-    } catch (error: any) {
-      console.error(error.message);
-    }
-  }
-
-  async function handleHabitClick() {
-    try {
-      addHabit("take a shower");
-    } catch (error: any) {
-      console.error(error.message);
-    }
-  }
-
-  async function handleAddFriendClick() {
-    console.log("add friend pressed");
-    try {
-      // test to add ben
-      addFriend("CPGh2ZUU48WCz59iHHSf86Jji4g2");
-    } catch (error: any) {
-      console.error(error.message);
-    }
-  }
-
-  async function handleAssignAuditor() {
-    console.log("auditor assign pressed");
-    const habitId = "Hv514XKg6o3r3PVw7jnu";
-    const auditorUid = "CPGh2ZUU48WCz59iHHSf86Jji4g2";
-    try {
-      // test to add ben
-      assignAuditor(habitId, auditorUid);
-    } catch (error: any) {
-      console.error(error.message);
-    }
-  }
-
-  async function handleUpdateHabitStatus() {
-    console.log("update status pressed");
-    const habitId = "Hv514XKg6o3r3PVw7jnu";
-    const newStatus = 1;
-    try {
-      // test to add ben
-      updateHabitStatus(habitId, newStatus);
-    } catch (error: any) {
-      console.error(error.message);
-    }
-  }
-
-  async function handleGetFriends() {
-    console.log("getfreinds button pushed");
-    try {
-      const friends = getFriends();
-      console.log(friends);
-    } catch (error: any) {
-      console.error(error.message);
-    }
-  }
-
-  async function handleGetHabits() {
-    console.log("gethabits button pushed");
-    try {
-      const habits = getHabits();
-      console.log(habits);
     } catch (error: any) {
       console.error(error.message);
     }
@@ -106,15 +38,8 @@ export default function Home() {
 
         <main className="flex flex-col items-center justify-center max-w-3xl m-auto p-10">
           <h1 className="text-3xl font-bold">Hello, {username}!</h1>
-          {/* test button */}
-          <Button onClick={() => signOut(auth)}>Sign out</Button>
-          <Button onClick={handleHabitClick}>Add Habit</Button>
-          <Button onClick={handleAddFriendClick}>Add Ben as friend</Button>
-          <Button onClick={handleAssignAuditor}>Add Ben as auditor</Button>
-          <Button onClick={handleUpdateHabitStatus}>
-            update shower status
-          </Button>
-          <Button onClick={handleGetFriends}>get friends</Button>
+
+          <Button onClick={() => signOut(auth)} className="mt-5">Sign out</Button>
 
           <div className="text-lg mt-4">
             Pick a habit. Add a friend. Start tracking. They’ll verify your
