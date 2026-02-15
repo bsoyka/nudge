@@ -11,6 +11,7 @@ import { updateHabitStatus } from "@/firebase/update-habit-status";
 import { getFriends } from "@/firebase/get-friends";
 import Button from "./components/Button";
 import Footer from "./components/Footer";
+import { getHabits } from "@/firebase/get-habits";
 
 export default function Home() {
   const auth = getAuth();
@@ -43,9 +44,9 @@ export default function Home() {
   }
 
   async function handleAssignAuditor() {
-    console.log("auditor assign pressed");
-    const habitId = "9wT1Vih6WAyaf6KeOZm0";
-    const auditorUid = "CPGh2ZUU48WCz59iHHSf86Jji4g2";
+    console.log("auditor assign pressed")
+    const habitId = "Hv514XKg6o3r3PVw7jnu";
+    const auditorUid = "CPGh2ZUU48WCz59iHHSf86Jji4g2"
     try {
       // test to add ben
       assignAuditor(habitId, auditorUid);
@@ -55,8 +56,8 @@ export default function Home() {
   }
 
   async function handleUpdateHabitStatus() {
-    console.log("update status pressed");
-    const habitId = "9wT1Vih6WAyaf6KeOZm0";
+    console.log("update status pressed")
+    const habitId = "Hv514XKg6o3r3PVw7jnu";
     const newStatus = 1;
     try {
       // test to add ben
@@ -73,6 +74,16 @@ export default function Home() {
       console.log(friends);
     } catch (error: any) {
       console.error(error.message);
+    }
+  }
+
+  async function handleGetHabits() {
+    console.log("gethabits button pushed")
+    try {
+      const habits = getHabits()
+      console.log(habits)
+    } catch (error: any) {
+      console.error(error.message)
     }
   }
 

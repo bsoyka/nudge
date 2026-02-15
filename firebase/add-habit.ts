@@ -1,6 +1,6 @@
 import { getAuth } from "firebase/auth";
 import { db } from "./auth";
-import { addDoc, collection, doc, setDoc } from "firebase/firestore";
+import { addDoc, collection, doc, setDoc, updateDoc } from "firebase/firestore";
 
 export const addHabit = async (habitName: string) : Promise<string | undefined> => {
   // get current user
@@ -21,15 +21,23 @@ export const addHabit = async (habitName: string) : Promise<string | undefined> 
 
     // add habit to the user's habit collection
     const docRef = await addDoc(habitRef, {
+      hid: "",
       habitName: habitName,
       streak: 0,
       viewers: [],
       auditor: null,
       status: 0,
+      owner: user.uid
     });
 
-    console.log("habit created:", habitName)
+    // add hid to the habit
+    await updateDoc(docRef, {
+      hid: docRef.id
+    })
 
+    console.log("habit created:", habitName);
+
+    // return hid
     return docRef.id;
 
   } catch (error: any) {
