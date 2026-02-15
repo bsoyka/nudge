@@ -10,54 +10,35 @@ import ModalTriggerButton from "./ModalTriggerButton";
 import Footer from "../components/Footer";
 
 const testHabit1: Habit = {
-  name: "WorkOut",
+  habitName: "WorkOut",
   status: Status.PENDING,
   streak: 1,
   auditor: "Ben",
-  id: 1,
-  uid: 10,
+  hid: "1",
+  viewers: [],
+  owner: "Ethan",
 };
 const testHabit2: Habit = {
-  name: "Drink",
+  habitName: "Drink",
   status: Status.INCOMPLETE,
   streak: 6,
   auditor: "Aidan",
-  id: 1,
-  uid: 10,
+  hid: "2",
+  viewers: [],
+  owner: "Ethan",
 };
 const testHabit3: Habit = {
-  name: "Walk The Dog",
+  habitName: "Walk The Dog",
   status: Status.FINISHED,
   streak: 22,
   auditor: "Ritesh",
-  id: 10,
-  uid: 10,
-};
-
-const testHabit1: Habit = {
-  name: "WorkOut",
-  status: Status.PENDING,
-  streak: 1,
-  auditor: "Ben",
-  id: 1,
-};
-const testHabit2: Habit = {
-  name: "Drink",
-  status: Status.INCOMPLETE,
-  streak: 6,
-  auditor: "Aidan",
-  id: 1,
-};
-const testHabit3: Habit = {
-  name: "Walk The Dog",
-  status: Status.FINISHED,
-  streak: 22,
-  auditor: "Ritesh",
-  id: 10,
+  hid: "10",
+  viewers: [],
+  owner: "Ethan",
 };
 
 function getHabitList(): Habit[] {
-  return testHabits;
+  return [testHabit1, testHabit2, testHabit3];
 }
 
 export default function Dashboard() {
