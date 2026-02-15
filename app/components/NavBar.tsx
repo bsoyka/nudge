@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function NavBarLink({ path, name }: { path: string; name: string }) {
   return (
-    <Link className="border-b-2 border-white" href={{ pathname: path }}>
+    <Link className="border-b-2 border-dark" href={{ pathname: path }}>
       {name}
     </Link>
   );
