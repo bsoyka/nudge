@@ -2,12 +2,12 @@ import { Contact } from "lucide-react"
 
 
 
-const tempFriends = ["Ben", "Ritesh", "Aidan", "Hottie"];
+const tempFriends = ["Ben", "Ritesh", "Aidan", "Hottie", "Man", "Bob", "John", "Peter", "Mikey"];
 function FriendProfileButton(name : string){
 	return(
 		<div className="friend-profile">
 			<Contact />
-			<h1>{name}</h1>
+			<h2>{name}</h2>
 		</div>
 	);
 }

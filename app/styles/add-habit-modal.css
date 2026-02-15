@@ -1,28 +1,54 @@
 .add-habit-modal{
+	color: var(--color-dark);
 	position:fixed;
-	display: inline;
+	display: flex;
+	gap:30px;
+	flex-direction: column;
 	top:50vh;
 	left:50vw;
 	transform: translate(-50%, -50%);
 	height: 50vh;
 	width: 60vw;
-	background-color: var(--color-background);
-	border: solid 2vh var(--color-primary);
+	background-color: var(--color-primary);
+	border: solid 1vh var(--color-dark);
 	border-radius: 7vh;
 	padding: 5vh;
 }
 
+.add-habit-modal input{
+	width: 80%;
+	color: var(--color-light);
+	background-color: var(--color-dark);
+	border: var(--color-light) 3px solid;
+}
 .add-habit-modal h1{
-	
+	width: fit-content;
+	padding: 5px;
+	border-bottom: var(--color-light) 1vh solid;
+	font-size: 3rem;
 }
 
 
 .friend-profile{
-
+	transition: .3s ease all;
+	border: solid var(--color-dark) 0.5vh;
+	padding: 1vh;
 }
 
-.friend-list{
+.friend-profile:hover{
+	background-color: var(--color-primary-dark);
+	box-shadow: 5px 5px var(--color-dark);
+	cursor: pointer;
+	transition: .3s ease all;
+}
 
+.friends-list{
+
+	align-items:flex-start;
+	display: grid;
+	grid-template-columns: repeat(6, auto);
+	grid-template-rows: repeat(2, auto);
+	gap: 20px
 }
 
 
