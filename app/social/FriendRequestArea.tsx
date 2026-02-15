@@ -1,5 +1,6 @@
 "use client";
 import { Check, X, Contact} from "lucide-react";
+import { getFriends} from "@/firebase/get-friends";
 
 import "./social.css";
 import "../styles/checkbox.css"
@@ -10,14 +11,16 @@ interface FriendRequestProps{
 	friend : Friend;
 }
 
-const example = [{uid:"hello", username:"John", score: 10}]
 
 function FriendRequestArea(){
-	const serverFriends = example;
-	const [getFriendRequests, setFriendRequests] = useState<Friend[]>(serverFriends);
-	
-	
 
+	const [getFriendRequests, setFriendRequests] = useState<Friend[]>([]);
+	const handleGetFriends = async () => {
+		const serverFriends = await getFriends();
+		if(serverFriends != null){
+			setFriendRequests(serverFriends);
+		}
+	};
 
 	const FriendRequest = ({friend} : FriendRequestProps) => {
 		const acceptFriendRequest = () => {

@@ -19,7 +19,7 @@ function HabitBox(habitProp : HabitBoxProps){
 	}
 	return(
 		<div className="habit-box">
-			<h1 className="habit-name"> {habitProp.habit.name}</h1>
+			<h1 className="habit-name"> {habitProp.habit.habitName}</h1>
 			<h3 className="streak-text">Streak: {habitProp.habit.streak}</h3>
 			<h3 className="streak-text">Auditor: {habitProp.habit.auditor}</h3>
 			{getStatus == Status.FINISHED ? <Check id="check" className="status-box"/> 
