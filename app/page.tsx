@@ -39,7 +39,7 @@ export default function Home() {
         <main className="flex flex-col items-center justify-center max-w-3xl m-auto p-10">
           <h1 className="text-3xl font-bold">Hello, {username}!</h1>
 
-          <Button onClick={() => signOut(auth)}>Sign out</Button>
+          <Button onClick={() => signOut(auth)} className="mt-5">Sign out</Button>
 
           <div className="text-lg mt-4">
             Pick a habit. Add a friend. Start tracking. They’ll verify your
