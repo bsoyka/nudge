@@ -8,9 +8,9 @@ export interface User{
 
 
 export enum Status{
-	PENDING,
-	FINISHED,
-	INCOMPLETE
+	INCOMPLETE = 0,
+	PENDING = 1,
+	FINISHED = 2,
 }
 
 export interface Habit{

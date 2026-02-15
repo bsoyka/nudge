@@ -9,8 +9,8 @@ function ModalTriggerButton(){
 	const [getModal, setModal] = useState(false);	
 	return(
 		<>
-			<button onClick={() => setModal(true)}>SetModal</button>
-			{getModal && <AddHabitModal/>}
+			<button onClick={() => setModal(true)} > SetModal</button>
+			{getModal && <AddHabitModal setModalOn={setModal} getModalOn={getModal}/>}
 		</>
 	);
 }

@@ -43,6 +43,6 @@
 }
 
 
-h1{
+.habit-name{
 	border-bottom: 3px var(--border_color) solid;
 }

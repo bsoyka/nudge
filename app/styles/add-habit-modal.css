@@ -1,12 +1,31 @@
 .add-habit-modal{
 	position:fixed;
+	display: inline;
 	top:50vh;
 	left:50vw;
 	transform: translate(-50%, -50%);
 	height: 50vh;
 	width: 60vw;
-	background-color: black;
+	background-color: var(--color-background);
+	border: solid 2vh var(--color-primary);
+	border-radius: 7vh;
+	padding: 5vh;
 }
+
+.add-habit-modal h1{
+	
+}
+
+
+.friend-profile{
+
+}
+
+.friend-list{
+
+}
+
+
 
 
 
