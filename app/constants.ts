@@ -6,6 +6,12 @@ export interface User{
 	habitList : Habit[];
 }
 
+export interface Friend{
+	id: number;
+	name: string;
+	score: number;
+}
+
 
 export enum Status{
 	INCOMPLETE = 0,
