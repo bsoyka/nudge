@@ -4,11 +4,22 @@ import React, { useState, useEffect } from "react";
 import ScoreItem from "../components/ScoreItem";
 import { mockUsers } from "../../data/MockUsers";
 import NavBar from "../components/NavBar";
+import {db} from "@/firebase/auth.ts"
+import { collection, getDocs } from "firebase/firestore";
 
-const Leaderboard = () => {
-  {
+function Leaderboard(props){
+  const [data, setData] = useState([])
+  const userRef = collection(db, "users")
+
+  useEffect(() =>{
+      const getData = async()=>{
+        const userData = await getDocs(userRef)
+        const value = userData.docs.map(val=>({id:val.id, ...val.data()}))
+        setData(value)
+      }
+      getData()
     /*https://medium.com/@nadia_15784/building-a-leaderboard-react-app-dbd557d4376e*/
-  }
+},[])
 
   //const [scores, setScores] = useState([]);
 
@@ -29,11 +40,13 @@ const Leaderboard = () => {
 
     fetchScores();
   }, []);
-  */
+  
 
   return (
     <>
+
       <NavBar />
+    
 
       <div className="leaderboard">
         <h1 className="leaderboardTitle">Leaderboard for Nudge</h1>
@@ -44,8 +57,29 @@ const Leaderboard = () => {
             streak={score.streak}
           />
         ))}
+
       </div>
-    </>
+      */
+     return (
+      <>
+
+      <NavBar />
+      <div className="leaderboard">
+        <h1 className="leaderboardTitle">Leaderboard for Nudge</h1>
+        {data.map(value =>
+          <ScoreItem 
+          key ={value.id}
+          user_id = {value.user_id}
+          streak = {value.score}
+          />
+
+        )
+        
+        }
+      </div>
+  
+
+      </>
   );
 };
 
