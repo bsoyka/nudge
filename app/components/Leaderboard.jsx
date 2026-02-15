@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import ScoreItem from "./ScoreItem";
 import {db} from "@/firebase/auth.ts"
 import { collection, getDocs } from "firebase/firestore";
+import "./Leaderboard.css";
 
 export function Leaderboard(props){
   const [data, setData] = useState([])
