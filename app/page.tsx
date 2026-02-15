@@ -139,6 +139,7 @@ export default function Home() {
             your habit streaks whenever they may break.
           </div>
         </main>
+        	
       </>
     );
   }
