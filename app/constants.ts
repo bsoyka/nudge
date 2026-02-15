@@ -6,7 +6,7 @@ export interface User{
 	score: number;
 	friends: string[]; // uid[]
 	pendingHabits: string[]; // hid[]
-	friendRequest: string[]; // uid[]
+	friendRequests: string[]; // uid[]
 }
 
 export interface Friend{
