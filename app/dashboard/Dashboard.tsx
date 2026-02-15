@@ -4,6 +4,7 @@ import ModalTriggerButton from "./ModalTriggerButton";
 import { getHabits } from "@/firebase/get-habits";
 import { getPendingHabits } from "@/firebase/get-pending-habits";
 import { useEffect, useState } from "react";
+import {Leaderboard} from "../components/Leaderboard";
 import HabitBox from "../components/HabitBox";
 import { Habit } from "../constants";
 import "../styles/dashboard.css";
@@ -52,8 +53,8 @@ function Dashboard(){
 			{getUserHabits.map((habit : Habit) => <HabitBox habit={habit} key={habit.hid} />)}
 			<ModalTriggerButton getHabits={getUserHabits} setHabits={setUserHabits}/>
 			</div>
-			<div className="friends">
-				<FriendRequestArea/>
+			<div className="leaderboard">
+				<Leaderboard/>
 			</div>
 			<GoToPending/>
 	</div>

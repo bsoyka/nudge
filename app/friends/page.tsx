@@ -3,6 +3,7 @@
 import React from "react";
 import { SearchBar } from "../components/Searchbar";
 import NavBar from "../components/NavBar";
+import FriendRequestArea from "./FriendRequestArea";
 
 export default function SearchBarPage() {
   return (
@@ -10,7 +11,9 @@ export default function SearchBarPage() {
       <NavBar />
       <div className="search-bar-container">
         <SearchBar />
+
       </div>
+		<FriendRequestArea/>
     </>
   );
 }

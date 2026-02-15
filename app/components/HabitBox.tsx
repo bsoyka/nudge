@@ -6,6 +6,7 @@ import { Habit, Status } from "../constants";
 import { Check, SquareDashed, CircleQuestionMark } from "lucide-react";
 import { useState } from "react";
 
+import { updateHabitStatus } from "@/firebase/edit-habit";
 interface HabitBoxProps {
   habit: Habit;
 }
@@ -14,7 +15,7 @@ function HabitBox(habitProp: HabitBoxProps) {
   const [getStatus, setStatus] = useState(habitProp.habit.status);
   const handlePendingRequest = () => {
     setStatus(Status.PENDING);
-    //API CALL
+	updateHabitStatus(habitProp.habit.hid, Status.PENDING);
   };
   return (
     <div className="habit-box">

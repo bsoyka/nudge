@@ -35,11 +35,9 @@ function NavBar() {
           className="h-full w-auto"
         />
       </Link>
-      <div className="flex gap-12 ml-auto text-lg items-center">
+      <div className="flex gap-12 ml-auto text-xl items-center">
         <NavBarLink path="/dashboard" name="Dashboard" />
-        <NavBarLink path="/leaderboard" name="Leaderboard" />
-        <NavBarLink path="/searchbar" name="Search" />
-        <NavBarLink path="/social" name="Social" />
+        <NavBarLink path="/friends" name="Friends" />
         <NavBarLink path="/verify" name="Verify for Friends" />
 
         {user && user.photoURL && (
