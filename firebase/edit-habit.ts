@@ -3,9 +3,13 @@ import { db } from "./auth";
 import {
   arrayRemove,
   arrayUnion,
+  collectionGroup,
   doc,
   getDoc,
+  getDocs,
+  query,
   updateDoc,
+  where,
 } from "firebase/firestore";
 
 const getUserRef = () => {
@@ -99,7 +103,7 @@ export const resetStreak = async (hid: string): Promise<void> => {
   }
 };
 
-export const updateHabitStatus = async (hid: string, ownerUid: string, newStatus: number) => {
+export const updateHabitStatus = async (hid: string, newStatus: number) => {
   try {
     // get user ref in db
     const auditorRef = getUserRef();
@@ -107,7 +111,13 @@ export const updateHabitStatus = async (hid: string, ownerUid: string, newStatus
       throw new Error("user does not exist");
     }
 
-    const habitRef = doc(db, "users", ownerUid, "habits", hid);
+    const q = query(
+      collectionGroup(db, "habits"),
+      where("hid", "==", hid)
+    )
+
+    const snap = await getDocs(q);
+    // const habitRef = doc(db, "users", ownerUid, "habits", hid);
 
     // const auditorRef = doc(db, "users", user.uid)
 
@@ -115,7 +125,7 @@ export const updateHabitStatus = async (hid: string, ownerUid: string, newStatus
     // const habitRef = doc(userRef, "habits", hid);
 
     // add habit to the user's habit collection
-    await updateDoc(habitRef, {
+    await updateDoc(snap.docs[0].ref, {
       status: newStatus,
     });
 

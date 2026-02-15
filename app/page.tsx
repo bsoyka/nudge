@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import Button from "./components/Button";
 import Footer from "./components/Footer";
 import { getPendingHabits } from "@/firebase/get-pending-habits";
+import { updateHabitStatus } from "@/firebase/edit-habit";
 
 export default function Home() {
   const auth = getAuth();
@@ -27,6 +28,14 @@ export default function Home() {
       console.error(error.message);
     }
   }
+
+  //  async function handleChangeStatus() {
+  //   try {
+  //     updateHabitStatus();
+  //   } catch (error: any) {
+  //     console.error(error.message);
+  //   }
+  // }
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -64,6 +73,8 @@ export default function Home() {
         </main>
 
         <Button onClick={handleGetPending} className="mt-5">get pending</Button>
+        <Button onClick={handleChangeStatus} className="mt-5">change status</Button>
+
 
 
         <Footer />
