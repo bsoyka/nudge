@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import ScoreItem from "../components/ScoreItem";
 import { mockUsers } from "../../data/MockUsers";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 const Leaderboard = () => {
   {
@@ -47,6 +48,8 @@ const Leaderboard = () => {
         ))}
         </div>
       </main>
+
+      <Footer />
     </>
   );
 };

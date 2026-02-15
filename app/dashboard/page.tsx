@@ -5,6 +5,7 @@ import HabitBox from "../components/HabitBox";
 import {Habit, Status} from "../constants";
 import AddHabit from "./AddHabit";
 import ModalTriggerButton from "./ModalTriggerButton";
+import Footer from "../components/Footer";
 
 
 const testHabit1 : Habit = {name: "WorkOut", status: Status.PENDING, streak: 1, auditor: "Ben", id: 1, uid: 10};
@@ -38,6 +39,8 @@ export default function Dashboard() {
 				<ModalTriggerButton/>
 			</div>
       </main>
+
+      <Footer />
 		</>
 	);
 

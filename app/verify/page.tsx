@@ -2,6 +2,7 @@ import NavBar from "../components/NavBar";
 import "../styles/dashboard.css";
 import HabitBox from "../components/HabitBox";
 import { Habit, Status } from "../constants";
+import Footer from "../components/Footer";
 
 function getHabitList(): Habit[] {
   return [
@@ -58,6 +59,8 @@ export default function VerifyPage() {
           </p>
         )}
       </main>
+
+      <Footer />
     </div>
   );
 }

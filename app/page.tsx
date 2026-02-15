@@ -10,6 +10,7 @@ import { assignAuditor } from "@/firebase/assign-auditor";
 import { updateHabitStatus } from "@/firebase/update-habit-status";
 import { getFriends } from "@/firebase/get-friends";
 import Button from "./components/Button";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const auth = getAuth();
@@ -112,6 +113,8 @@ export default function Home() {
             Stumble along the way? That’s part of growth. Nudge gives you and your friends the tools you need to mend your streaks, support each other, and grow together. <strong>Welcome to the Nudge community!</strong>
           </div>
         </main>
+
+        <Footer />
       </>
     );
   } else {
@@ -149,6 +152,8 @@ export default function Home() {
             your habit streaks whenever they may break.
           </div>
         </main>
+
+        <Footer />
       </>
     );
   }
