@@ -41,6 +41,6 @@
 	box-shadow: 5px 5px var(--color-dark);
 }
 
-h1{
-    border-bottom: 3px var(--color-dark) solid;
+.habit-name{
+	border-bottom: 3px var(--border_color) solid;
 }
