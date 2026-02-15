@@ -5,12 +5,20 @@ import FriendsListSelector from "./FriendsListSelector";
 import { addHabit } from "@/firebase/add-habit";
 import { assignAuditor } from "@/firebase/assign-auditor";
 import { Friend } from "../constants";
+import { getHabits } from "@/firebase/get-habits";
 interface AddHabitProps {
   setModalOn: any;
   getModalOn: any;
+  setHabit: any;
+  getHabit: any;
 }
 
-function AddHabitModal({ getModalOn, setModalOn }: AddHabitProps) {
+function AddHabitModal({
+  getModalOn,
+  setModalOn,
+  getHabit,
+  setHabit,
+}: AddHabitProps) {
   const [getInput, setInput] = useState("");
   const [getSelectedFriend, setSelectedFriend] = useState<Friend>();
 
@@ -21,6 +29,13 @@ function AddHabitModal({ getModalOn, setModalOn }: AddHabitProps) {
 
     if (uid != undefined && getSelectedFriend != null)
       assignAuditor(uid, getSelectedFriend.uid);
+    const fetchHabits = async () => {
+      const promise = await getHabits();
+      if (promise != null) {
+        setHabit(promise);
+      }
+    };
+    fetchHabits();
   };
   return (
     <>
