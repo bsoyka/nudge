@@ -28,7 +28,7 @@ function FriendRequestArea(){
 	const FriendRequest = ({friend} : FriendRequestProps) => {
 		const acceptFriendRequest = () => {
 		addFriend(friend.uid);
-			setFriendRequests(getFriendRequests.filter((item : Friend) => {
+			setFriendRequests(getFriendRequest.filter((item : Friend) => {
 				if(item.uid != friend.uid){
 					return true;
 				}
@@ -38,7 +38,7 @@ function FriendRequestArea(){
 	
 		const declineFriendRequest = () => {
 			rejectFriendRequest(friend.uid);
-			setFriendRequests(getFriendRequests.filter((item : Friend) => {
+			setFriendRequests(getFriendRequest.filter((item : Friend) => {
 				if(item.uid != friend.uid){
 					return true;
 				}
@@ -58,10 +58,8 @@ function FriendRequestArea(){
 
 	return(
 		<div className="friend-section">
-			{getFriendRequests.map((f) => <FriendRequest friend={f}/>)}
+			{getFriendRequest.map((f) => <FriendRequest friend={f}/>)}
 		</div>
-
-
 	);
 }
 
