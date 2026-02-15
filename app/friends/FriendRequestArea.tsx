@@ -30,7 +30,7 @@ function FriendRequestArea(){
 	, []);
 	const FriendRequest = ({friend} : FriendRequestProps) => {
 		const acceptFriendRequest = () => {
-						setFriendRequests(getFriendRequest.filter((item : Friend) => {
+				setFriendRequests(getFriendRequest.filter((item : Friend) => {
 				if(item.uid != friend.uid){
 					return true;
 				}

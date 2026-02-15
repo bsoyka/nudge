@@ -1,7 +1,7 @@
 .status-box{
 	transition: .3s ease;
-	width: 100px;
-	height: 100px;
+	width: 150px;
+	height: 150px;
 	cursor: pointer;
 	border-radius: 30px;
 }

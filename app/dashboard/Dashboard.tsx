@@ -12,6 +12,7 @@ import "../styles/dashboard.css";
 import {auth} from "@/firebase/auth"
 import "../globals.css";
 import PendingBoxes from "../verify/PendingBoxes";
+import { get } from "http";
 
 function Dashboard(){
 	const [getUserHabits, setUserHabits] = useState<Habit[]>([])
@@ -43,6 +44,7 @@ function Dashboard(){
 
 	function GoToPending(){
 		return(
+			getNumPending == null || getNumPending <=0 ? <></> : 
 			<div className="pending">
 				<Link href="/verify"> You have {getNumPending} friend habits to check out! </Link>
 			</div>
