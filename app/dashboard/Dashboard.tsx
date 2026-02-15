@@ -1,13 +1,11 @@
 "use client";
-import AddHabit from "./AddHabit";
 import ModalTriggerButton from "./ModalTriggerButton";
 import { getHabits } from "@/firebase/get-habits";
-import { useEffect, useEffectEvent, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import HabitBox from "../components/HabitBox";
-import { Habit, Status } from "../constants";
+import { Habit } from "../constants";
 import "../styles/dashboard.css";
 import "../globals.css";
-import { fetchSignInMethodsForEmail } from "firebase/auth";
 
 function Dashboard() {
   let [getUserHabits, setUserHabits] = useState<Habit[]>([]);

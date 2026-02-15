@@ -2,7 +2,7 @@
 
 import { Habit } from "@/app/constants";
 import { getAuth } from "firebase/auth";
-import { collection, doc, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "./auth";
 
 export const getHabits = async (): Promise<Habit[] | undefined> => {

@@ -1,11 +1,19 @@
 export interface User {
   uid: string;
   username: string;
+  usernameLower: string;
   photo: string | null;
   score: number;
   friends: string[]; // uid[]
   pendingHabits: string[]; // hid[]
   friendRequests: string[]; // uid[]
+}
+
+export interface SearchUser {
+  uid: string;
+  username: string;
+  usernameLower: string;
+  photo: string | null;
 }
 
 export interface Friend {

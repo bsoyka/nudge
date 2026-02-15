@@ -2,7 +2,7 @@
 
 import { getAuth } from "firebase/auth";
 import { db } from "./auth";
-import { addDoc, collection, doc, setDoc, updateDoc } from "firebase/firestore";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 
 export const addHabit = async (
   habitName: string,
