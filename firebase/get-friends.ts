@@ -1,12 +1,8 @@
 import { getAuth } from "firebase/auth";
 import { collection, doc, getDoc, orderBy, query } from "firebase/firestore";
 import { db } from "./auth";
+import { Friend } from "@/app/constants";
 
-type Friend = {
-  uid: string,
-  username: string
-  score: number
-}
 
 export const getFriends = async () : Promise<Friend[] | undefined> => {
   // get current user
@@ -29,6 +25,7 @@ export const getFriends = async () : Promise<Friend[] | undefined> => {
   
 
 
+    // get list of friend uids
     let friendsUids: string[] = []
     if (snap.exists()) {
       friendsUids = snap.data().friends
@@ -39,21 +36,20 @@ export const getFriends = async () : Promise<Friend[] | undefined> => {
     // iterate through friends lists
     for (const friendUid of friendsUids) {
       try {
-        // get friend reference in the database
+        // get friend user reference in the database
         const friendRef = doc(db, "users", friendUid);
         const friendSnap = await getDoc(friendRef);
 
         // if the friend exists
         if (friendSnap.exists()) {
           const friendData = friendSnap.data();
-          const friendUsername = friendData.username;
-          const friendScore = friendData.score
 
           // add friend information to the friends list
           friendsList.push({
             uid: friendUid, 
-            username: friendUsername, 
-            score: friendScore
+            username: friendData.username, 
+            score: friendData.score,
+            photo: friendData.photo
           })
         }
       } catch (error) {
@@ -62,10 +58,6 @@ export const getFriends = async () : Promise<Friend[] | undefined> => {
     }
     friendsList.sort((val1,val2) => val2.score - val2.score)
     return friendsList
-
-    // get friends information
-    // add to array
-  
 
   } catch (error: any) {
     console.error("error logging in with google", error.code, error.message)
