@@ -21,7 +21,7 @@ export function Leaderboard(props) {
   }, []);
   return (
     <>
-      <h1 className="leaderboardTitle">Friend Leaderboard</h1>
+      <h1 className="leaderboardTitle">Global Leaderboard</h1>
       {data.map((value) => (
         <ScoreItem
           key={value.id}
