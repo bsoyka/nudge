@@ -1,14 +1,18 @@
 export interface User{
-	id: number;
-	name: string;
-	friends: string[];
-	habitList : Habit[];
+	uid: string;
+	username: string;
+	photo: string | null
+	score: number;
+	friends: string[]; // uid[]
+	pendingHabits: string[]; // hid[]
+	friendRequest: string[]; // uid[]
 }
 
 export interface Friend{
 	uid: string;
 	username: string;
 	score: number;
+	photo: string | null;
 }
 
 export enum Status{
@@ -18,11 +22,14 @@ export enum Status{
 }
 
 export interface Habit{
-	name: string;
-	status: Status;
+	hid: string;
+	habitName: string;
 	streak: number;
-	auditor: string;
-	id: number;
+
+	viewers: string[]; // uid[]
+	auditor: string; // uid[]
+	status: number;
+	owner: string; // uid
 }
 
 
