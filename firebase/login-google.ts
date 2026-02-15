@@ -1,6 +1,6 @@
 import { signInWithPopup } from "firebase/auth"
 import { auth, db, googleProvider } from "./auth"
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 
 export const loginWithGoogle = async () => {
   try {
@@ -15,9 +15,13 @@ export const loginWithGoogle = async () => {
     // if the user is not added to the db, add them to the db
     if (!snap.exists()) {
       await setDoc(userRef, {
+        uid: user.uid,
         username: user.displayName,
+        photo: user.photoURL,
         score: 0,
         friends: [],
+        pendingHabits: [],
+        friendRequests: []
       });
     }
 

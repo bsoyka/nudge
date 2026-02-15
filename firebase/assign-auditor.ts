@@ -2,7 +2,7 @@ import { getAuth, User } from "firebase/auth";
 import { db } from "./auth";
 import { arrayUnion, collection, doc, getDoc, getDocs, query, updateDoc, where } from "firebase/firestore";
 
-export const assignAuditor = async (habitId: string, auditorUid: string) => {
+export const assignAuditor = async (hid: string, auditorUid: string) => {
 
   // get current user
   const auth = getAuth();
@@ -27,16 +27,8 @@ export const assignAuditor = async (habitId: string, auditorUid: string) => {
       throw new Error("user requested doesnt exist");
     }
 
-    // console.log("users", user.uid, "habit", )
-    const habitRef = doc(db, "users", user.uid, "habits", habitId);
-
-    // check if an auditor is assigned already
-    // const q = query(collection(habitRef, "auditor"));
-    // const snap = await getDocs(q);
-
-    // if (!snap.empty) {
-    //   throw new Error("auditor already assigned")
-    // }
+    // habit reference
+    const habitRef = doc(db, "users", user.uid, "habits", hid);
 
     // add friend to list
     await updateDoc(habitRef, {
