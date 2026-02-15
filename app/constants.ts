@@ -6,11 +6,17 @@ export interface User{
 	habitList : Habit[];
 }
 
+export interface Friend{
+	id: number;
+	name: string;
+	score: number;
+}
+
 
 export enum Status{
-	PENDING,
-	FINISHED,
-	INCOMPLETE
+	INCOMPLETE = 0,
+	PENDING = 1,
+	FINISHED = 2,
 }
 
 export interface Habit{

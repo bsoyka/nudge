@@ -4,17 +4,20 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 
 export const loginWithGoogle = async () => {
   try {
+    // attempt to sign in with google OAuth
     const result = await signInWithPopup(auth, googleProvider);
     const user = result.user
 
+    // get reference to the user in the db
     const userRef = doc(db, "users", user.uid);
     const snap = await getDoc(userRef)
 
+    // if the user is not added to the db, add them to the db
     if (!snap.exists()) {
       await setDoc(userRef, {
         username: user.displayName,
-        streak: 0,
-        friends: []
+        score: 0,
+        friends: [],
       });
     }
 

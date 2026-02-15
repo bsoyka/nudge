@@ -10,7 +10,6 @@ interface HabitBoxProps{
 
 function HabitBox(habitProp : HabitBoxProps){
 	const [getStatus, setStatus] = useState(habitProp.habit.status);
-
 	const handlePendingRequest = () =>
 	{
 		setStatus(Status.PENDING);
