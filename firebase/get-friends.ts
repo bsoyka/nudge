@@ -1,5 +1,5 @@
 import { getAuth } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc, orderBy, query } from "firebase/firestore";
 import { db } from "./auth";
 
 type Friend = {
@@ -22,7 +22,12 @@ export const getFriends = async () : Promise<Friend[] | undefined> => {
 
     // get list of user's friends' id from database
     const userRef = doc(db, "users", user.uid);
+    //const snap = await getDoc(userRef)
+    const userAll = collection(db, "users");
+    const q = query(userAll, orderBy("score", "asc"));
     const snap = await getDoc(userRef)
+  
+
 
     let friendsUids: string[] = []
     if (snap.exists()) {
@@ -55,7 +60,7 @@ export const getFriends = async () : Promise<Friend[] | undefined> => {
         console.error("error creating friends list")
       }
     }
-
+    friendsList.sort((val1,val2) => val2.score - val2.score)
     return friendsList
 
     // get friends information

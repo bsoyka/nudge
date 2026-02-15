@@ -10,12 +10,14 @@ const Leaderboard = () => {
     /*https://medium.com/@nadia_15784/building-a-leaderboard-react-app-dbd557d4376e*/
   }
 
-  const [scores, setScores] = useState([]);
+  //const [scores, setScores] = useState([]);
 
+
+  /*
   useEffect(() => {
     const fetchScores = async () => {
       try {
-        const response = await api.get("/getscores");
+        const response = getFriends()
         const sorted = response.data.sort(
           (val1, val2) => val2.streak - val1.streak,
         );
@@ -27,6 +29,7 @@ const Leaderboard = () => {
 
     fetchScores();
   }, []);
+  */
 
   return (
     <>
