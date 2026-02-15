@@ -6,16 +6,16 @@ export const calculateScore = async (uid: string) => {
     const habitRef = collection(db, "users", uid, "habits");
     const habitSnap = await getDocs(habitRef);
 
-    const count = habitSnap.size
+    const count = habitSnap.size;
 
-    const userRef = doc(db, "users", uid)
+    const userRef = doc(db, "users", uid);
 
     await updateDoc(userRef, {
-      score: count
-    })
+      score: count,
+    });
 
-    console.log("score updated for user:", uid)
-  } catch (error:any) {
-    console.error(error.code, error.message)
+    console.log("score updated for user:", uid);
+  } catch (error: any) {
+    console.error(error.code, error.message);
   }
-}
+};
