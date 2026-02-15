@@ -11,6 +11,7 @@ import {
   updateDoc,
   where,
 } from "firebase/firestore";
+import { UserSquare2 } from "lucide-react";
 
 export const addFriend = async (friendUid: string) => {
   // get current user
@@ -28,35 +29,54 @@ export const addFriend = async (friendUid: string) => {
       throw new Error("can't add yourself as friend");
     }
 
-    // check if friend to be added exists
     const friendRef = doc(db, "users", friendUid);
     const friendSnap = await getDoc(friendRef);
 
     if (!friendSnap.exists()) {
-      throw new Error("user requested doesnt exist");
+      throw new Error("friend requested doesnt exist");
     }
 
     const userRef = doc(db, "users", user.uid);
+    const userSnap = await getDoc(userRef);
 
-    // check if friend is already added
-    const q = query(
+    /**
+     * add friend to user's friends list
+     */
+    const userQ = query(
       collection(userRef, "friends"),
       where("friends", "array-contains", friendUid),
     );
-    const snap = await getDocs(q);
 
-    if (!snap.empty) {
-      throw new Error("friend already added");
+    const userQuerySnap = await getDocs(userQ);
+
+    if (userQuerySnap.empty) {
+      await updateDoc(userRef, {
+        friends: arrayUnion(friendUid),
+      });
     }
 
-    // add friend to list
-    await updateDoc(userRef, {
-      friends: arrayUnion(friendUid),
-    });
-
-    // remove friend from request list
     await updateDoc(userRef, {
       friendRequests: arrayRemove(friendUid),
+    });
+
+    /**
+     * add user to friend's friends list
+     */
+    const friendQ = query(
+      collection(friendRef, "friends"),
+      where("friends", "array-contains", user.uid),
+    );
+
+    const friendQuerySnap = await getDocs(friendQ);
+
+    if (friendQuerySnap.empty) {
+      await updateDoc(friendRef, {
+        friends: arrayUnion(user.uid),
+      });
+    }
+
+    await updateDoc(friendRef, {
+      friendRequests: arrayRemove(user.uid),
     });
 
     console.log(`${user.displayName} added ${friendUid}`);
