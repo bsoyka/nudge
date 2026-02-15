@@ -1,10 +1,25 @@
+.div-div{
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin: 2vh;
+}
+
+.h1h1{
+	margin: 2vh;
+	font-size: 5vh;
+	font-weight: 500;
+	border-bottom: .4vh solid black;
+
+}
+
 .friend-section {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
-    margin: 20px;
-    padding: 5em;
+    margin: 1vh;
+    padding: 1em;
     gap: 2em;
     width: 100vw;
     height: 100%;
