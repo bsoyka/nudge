@@ -1,5 +1,5 @@
 .add-habit-modal{
-	color: var(--color-dark);
+	color: var(--color-light);
 	position:fixed;
 	display: flex;
 	gap:30px;
@@ -31,7 +31,7 @@
 
 .friend-profile{
 	transition: .3s ease all;
-	border: solid var(--color-dark) 0.5vh;
+	border: solid var(--color-light) 0.5vh;
 	padding: 1vh;
 }
 
