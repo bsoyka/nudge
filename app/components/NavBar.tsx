@@ -2,7 +2,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { getAuth, onAuthStateChanged, User, signOut } from "firebase/auth";
+import { onAuthStateChanged, User, signOut } from "firebase/auth";
+import { auth } from "@/firebase/auth";
 
 function NavBarLink({ path, name }: { path: string; name: string }) {
   return (
@@ -14,7 +15,6 @@ function NavBarLink({ path, name }: { path: string; name: string }) {
 
 function NavBar() {
   const [user, setUser] = useState<User | null>(null);
-  const auth = getAuth();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {

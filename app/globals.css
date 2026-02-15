@@ -13,5 +13,17 @@ body{
     --color-dark: #171a1d;
 }
 
+@property --position{
+    syntax: "<number>";
+    inherits:true;
+    initial-value: 0;
+}
+
+@property --quantity{
+    syntax:"<number>";
+    inherits:true;
+    initial-value:1;
+}
+
 /* Regenerate utilities to ensure custom colors are available */
 @tailwind utilities;
