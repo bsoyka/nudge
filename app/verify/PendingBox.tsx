@@ -13,35 +13,35 @@ interface PendingBoxProps {
 }
 
 function PendingBox({ habit, getPending, setPending }: PendingBoxProps) {
+
+  updateHabitStatus(habit.hid, Status.FINISHED);
   const handleClickAccept = () => {
     setPending(
       getPending.filter((pendingHabit: any) => {
-        if (pendingHabit === habit) {
+        if (pendingHabit.hid == habit.hid) {
           return false;
         }
         return true;
       }),
     );
-    updateHabitStatus(habit.hid, Status.FINISHED);
   };
 
   const handleClickDecline = () => {
-    //acceptedHabit(habit);
+	updateHabitStatus(habit.hid, Status.INCOMPLETE);
     setPending(
       getPending.filter((pendingHabit: any) => {
-        if (pendingHabit === habit) {
+        if (pendingHabit.hid == habit.hid) {
           return false;
         }
         return true;
       }),
     );
-    updateHabitStatus(habit.hid, Status.INCOMPLETE);
-  };
+      };
 
   return (
     <div className="pending-box">
       <h1> {habit.habitName} </h1>
-      <h2> Buddy name </h2>
+      <h2> Ben Soyka </h2>
       <div className="flex gap-10">
         <Check className="status-box" id="check" onClick={handleClickAccept} />
         <X className="status-box" id="x" onClick={handleClickDecline} />

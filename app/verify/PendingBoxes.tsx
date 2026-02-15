@@ -12,7 +12,8 @@ function PendingBoxes() {
 	const fetchPending = async () => {
     const serverPending = await getPendingHabits();
     if (serverPending != null) {
-      return serverPending;
+		setPending(serverPending);
+			
     }
     return null;
   };
