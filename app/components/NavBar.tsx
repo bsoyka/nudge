@@ -1,6 +1,8 @@
-//'use client';
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { getAuth, onAuthStateChanged, User, signOut } from "firebase/auth";
 
 function NavBarLink({ path, name }: { path: string; name: string }) {
   return (
@@ -11,6 +13,17 @@ function NavBarLink({ path, name }: { path: string; name: string }) {
 }
 
 function NavBar() {
+  const [user, setUser] = useState<User | null>(null);
+  const auth = getAuth();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, [auth]);
+
   return (
     <nav className="flex w-full h-17 justify-start items-center bg-primary px-25 py-6 text-light">
       <Link href="/" className="flex items-center h-full mr-4">
@@ -22,12 +35,23 @@ function NavBar() {
           className="h-full w-auto"
         />
       </Link>
-      <div className="flex gap-12 ml-auto text-lg">
+      <div className="flex gap-12 ml-auto text-lg items-center">
         <NavBarLink path="/dashboard" name="Dashboard" />
         <NavBarLink path="/leaderboard" name="Leaderboard" />
         <NavBarLink path="/searchbar" name="Search" />
         <NavBarLink path="/social" name="Social" />
         <NavBarLink path="/verify" name="Verify for Friends" />
+
+        {user && user.photoURL && (
+          <Image
+            src={user.photoURL}
+            alt={user.displayName || "User profile"}
+            width={40}
+            height={40}
+            className="rounded-full border border-light cursor-pointer"
+            onClick={() => signOut(auth)}
+          />
+        )}
       </div>
     </nav>
   );
