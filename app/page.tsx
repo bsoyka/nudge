@@ -51,7 +51,8 @@ export default function Home() {
 
         <main className="flex flex-col items-center justify-center text-align-center max-w-3xl m-auto p-10">
           <h1 className="text-3xl font-bold">
-            Give your friends a <span className="uppercase font-black">Nudge</span>!
+            Give your friends a{" "}
+            <span className="uppercase font-black">Nudge</span>!
           </h1>
 
           <div className="text-lg mt-4">
@@ -63,6 +64,19 @@ export default function Home() {
           <Button onClick={handleClick} className="mt-5">
             Sign in with Google
           </Button>
+
+          <div className="text-lg mt-4">
+            With Nudge, you work with friends to{" "}
+            <strong>get things done</strong>. Before the satisfaction of
+            checking a habit off your daily to-do list, a trusted friend
+            verifies you’ve done your work, keeping you accountable.
+          </div>
+
+          <div className="text-lg mt-4">
+            Studies show you’re more likely to form good habits when working
+            with someone. Nudge wants you to <strong>mend, not end,</strong>{" "}
+            your habit streaks whenever they may break.
+          </div>
         </main>
       </>
     );
