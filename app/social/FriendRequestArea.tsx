@@ -1,48 +1,55 @@
 "use client";
 import { Check, X, Contact} from "lucide-react";
-import { getFriends} from "@/firebase/get-friends";
+import { getFriendRequests } from "@/firebase/get-friend-requests";
 import { rejectFriendRequest } from "@/firebase/reject-friend-request";
 import { addFriend } from "@/firebase/add-friend";
 
 import "./social.css";
 import "../styles/checkbox.css"
 import { Friend } from "../constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface FriendRequestProps{
 	friend : Friend;
 }
-
-
 function FriendRequestArea(){
 
-	const [getFriendRequests, setFriendRequests] = useState<Friend[]>([]);
+	const [getFriendRequest, setFriendRequests] = useState<Friend[]>([]);
+
+
+	
+
+	useEffect(() => {
 	const handleGetFriends = async () => {
-		const serverFriends = await getFriends();
+		const serverFriends = await getFriendRequests();
 		if(serverFriends != null){
 			setFriendRequests(serverFriends);
 		}
+		handleGetFriends();
 	};
-
+    handleGetFriends();
+  }, []);
 	const FriendRequest = ({friend} : FriendRequestProps) => {
 		const acceptFriendRequest = () => {
-		addFriend(friend.uid);
-			setFriendRequests(getFriendRequests.filter((item : Friend) => {
+						setFriendRequests(getFriendRequest.filter((item : Friend) => {
 				if(item.uid != friend.uid){
 					return true;
 				}
 				return false;
 			}))
+			addFriend(friend.uid);
+
 		};
 	
 		const declineFriendRequest = () => {
-			rejectFriendRequest(friend.uid);
-			setFriendRequests(getFriendRequests.filter((item : Friend) => {
+			setFriendRequests(getFriendRequest.filter((item : Friend) => {
 				if(item.uid != friend.uid){
 					return true;
 				}
 				return false;
 			}))
+
+			rejectFriendRequest(friend.uid);
 		};
 		return(
 			<div className="friend-request">
@@ -57,10 +64,8 @@ function FriendRequestArea(){
 
 	return(
 		<div className="friend-section">
-			{getFriendRequests.map((f) => <FriendRequest friend={f}/>)}
+			{getFriendRequest.map((f) => <FriendRequest friend={f}/>)}
 		</div>
-
-
 	);
 }
 

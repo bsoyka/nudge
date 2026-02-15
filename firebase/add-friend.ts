@@ -1,6 +1,7 @@
 import { getAuth } from "firebase/auth";
 import { db } from "./auth";
 import {
+  arrayRemove,
   arrayUnion,
   collection,
   doc,
@@ -51,6 +52,11 @@ export const addFriend = async (friendUid: string) => {
     // add friend to list
     await updateDoc(userRef, {
       friends: arrayUnion(friendUid),
+    });
+
+    // remove friend from request list
+    await updateDoc(userRef, {
+      friendRequests: arrayRemove(friendUid),
     });
 
     console.log(`${user.displayName} added ${friendUid}`);

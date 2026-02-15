@@ -13,11 +13,18 @@ export const makeFriendRequest = async (friendUid: string) => {
   }
 
   try {
+    if (user.uid == friendUid) {
+      throw new Error("can't friend yourself")
+    }
+
     const friendRef = doc(db, "users", friendUid);
 
     await updateDoc(friendRef, {
-      friendRequests: arrayUnion(user.uid),
+      friendRequests: arrayUnion(user.uid)
     });
+
+    console.log("friend req sent to", friendUid)
+
   } catch (error: any) {
     console.error("error making friend request", error.code, error.message);
   }
