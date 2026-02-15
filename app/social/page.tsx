@@ -1,7 +1,5 @@
 import NavBar from "../components/NavBar";
 
-
-
 function Social(){
 	return(
 		<>

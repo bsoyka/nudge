@@ -1,38 +1,13 @@
 import NavBar from "../components/NavBar";
 import "../styles/dashboard.css";
-import HabitBox from "../components/HabitBox";
-import { Habit, Status } from "../constants";
+import PendingBoxes from "./PendingBoxes";
 
-function getHabitList(): Habit[] {
-  return [
-    {
-      name: "Write some code",
-      status: Status.PENDING,
-      streak: 1,
-      auditor: "Ethan",
-      id: 1,
-      uid: 10,
-    },
-    {
-      name: "Delete an agentic AI app",
-      status: Status.INCOMPLETE,
-      streak: 6,
-      auditor: "Ethan",
-      id: 2,
-      uid: 10,
-    },
-    {
-      name: "Mention Opus 4.6",
-      status: Status.FINISHED,
-      streak: 22,
-      auditor: "Ben",
-      id: 3,
-      uid: 10,
-    },
-  ];
-}
+
+
 
 export default function VerifyPage() {
+
+
   return (
     <div>
       <NavBar />
@@ -45,13 +20,8 @@ export default function VerifyPage() {
           Verify whether they&apos;ve completed their daily habits, and help
           them mend their streaks if they haven&apos;t.
         </div>
-
-        <div className="dashboard">
-          {getHabitList().map((habit) => (
-            <HabitBox habit={habit} key={habit.id} />
-          ))}
-        </div>
-      </main>
+		<PendingBoxes/>
+   	 </main>
     </div>
   );
 }

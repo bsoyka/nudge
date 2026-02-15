@@ -1,4 +1,3 @@
-
 export interface User{
 	id: number;
 	name: string;
@@ -12,7 +11,6 @@ export interface Friend{
 	score: number;
 }
 
-
 export enum Status{
 	INCOMPLETE = 0,
 	PENDING = 1,
@@ -25,7 +23,6 @@ export interface Habit{
 	streak: number;
 	auditor: string;
 	id: number;
-	uid: number;
 }
 
 
