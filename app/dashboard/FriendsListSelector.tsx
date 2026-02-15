@@ -1,7 +1,9 @@
 import { Contact } from "lucide-react";
 import { getFriends } from "@/firebase/get-friends";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Friend } from "../constants";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "@/firebase/auth";
 
 interface SelectorProps {
   setSelectedFriend: any;
@@ -33,10 +35,21 @@ function FriendsListSelector({
   getSelectedFriend,
   setSelectedFriend,
 }: SelectorProps) {
+
   const [getFriend, setFriends] = useState<Friend[]>([]);
-  getFriends().then((promiseFriends) =>
-    setFriends(promiseFriends ? promiseFriends : []),
-  );
+  
+	const fetchFriend= async () => {
+			const promise = await getFriends();
+			if(promise == null){
+				setFriends([]);
+			}
+			else{
+				setFriends(promise);
+			}
+		};
+	useEffect(() =>{
+		onAuthStateChanged(auth ,(n) => (fetchFriend()));}
+	, []);
 
   return (
     <div className="friends-list">
