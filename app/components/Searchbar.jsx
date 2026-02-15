@@ -12,19 +12,25 @@ export const SearchBar = ({setResults}) => {
 
     const fetchData = async (value) => {
         if(!value) return;
+        /*
         const q = 
         query(
         collection(db, "users"), 
-        where("name", ">=", value),
-        where("name", "<=", value + "\uf8ff")
+        where("username", ">=", value),
+        where("username", "<=", value + "\uf8ff")
         );
+        */
 
         const querySnapshot = await getDocs(q);
         const results =  querySnapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
         }));
-        setResults(results);
+        const filter = AiFillCustomerService.filter(user =>
+            user.username && 
+            user.username.toLowerCase().includes(value.toLowerCase())
+        )
+        setResults(filter );
         /*
         fetch("put call here").then((response) => response.json())
         .then((json) => {
