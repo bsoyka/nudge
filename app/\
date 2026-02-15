@@ -4,13 +4,14 @@
     display: grid;
 	height: 100vh;
 	background-color: lightgray;
-	grid-template-columns: repeat(10, 10vw);
+	grid-template-columns: 70vw 30vw;
 	grid-template-rows: repeat(10, 10vh);
 }
 
+
 .habits{
-	grid-column: 1/9;
-	grid-row: 1/1;
+	grid-column: 1/1;
+	grid-row: 1/-1;
 	display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -19,14 +20,11 @@
     gap: 2em;
 }
 
-.leaderboard{
-	background-color: var(--color-primary-dark);
-	font-size: 1.4vw;
-	color: var(--color-light);
-	grid-column: 9/11;
+.friends{
+	grid-column: 2/2;
 	border-left: 0.3vh solid gray;
 	border-bottom: 0.3vh solid gray;
-	grid-row: 2 / 7;
+	grid-row: 2 / 11;
 }
 
 .pending{
@@ -34,9 +32,9 @@
 	border-bottom: 0.3vh solid gray;
 	padding: 1vh;
 	background-color: lightyellow;
-	grid-column: 9/11;
+	grid-column: 2/2;
 	grid-row: 1/1;
-	font-size: 1.6vw;
+	font-size: 1.6rem;
 	font-weight: 500;
 	display:flex;
 	justify-content: center;
