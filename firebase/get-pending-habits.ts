@@ -50,6 +50,7 @@ export const getPendingHabits = async () : Promise<Habit[] | undefined> => {
     }
 
     return habitList
+    
   } catch (error: any) {
     console.error(error.code, error.message)
   }
