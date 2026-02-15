@@ -6,10 +6,19 @@ import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 import Button from "./components/Button";
 import Footer from "./components/Footer";
+import { getPendingHabits } from "@/firebase/get-pending-habits";
 
 export default function Home() {
   const auth = getAuth();
   const [user, setUser] = useState<User | null>(null);
+
+  async function handleGetPending() {
+    try {
+      console.log(getPendingHabits())
+    } catch (error: any) {
+      console.error(error.messege)
+    }
+  }
 
   async function handleClick() {
     try {
@@ -53,6 +62,9 @@ export default function Home() {
             <strong>Welcome to the Nudge community!</strong>
           </div>
         </main>
+
+        <Button onClick={handleGetPending} className="mt-5">get pending</Button>
+
 
         <Footer />
       </>
