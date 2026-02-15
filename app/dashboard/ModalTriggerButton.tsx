@@ -12,7 +12,7 @@ interface ModalProps{
 
 function ModalTriggerButton({setHabits, getHabits} : ModalProps){
 	const [getModal, setModal] = useState(false);	
-	setHabits(getHabits);
+	getHabits;
 	return(
 		<>
 			<Plus onClick={() => setModal(true) } className="plus"/> 

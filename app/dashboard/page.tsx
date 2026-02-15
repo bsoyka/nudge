@@ -1,4 +1,3 @@
-"use client";
 import NavBar from "../components/NavBar";
 import "../styles/dashboard.css";
 import "../globals.css";
@@ -18,11 +17,10 @@ const testHabit3 : Habit = {name: "Walk The Dog", status: Status.FINISHED, strea
 
 
 export default function() {
-
+	
 	return(
 		<>
 			<NavBar/>
-						
 			<Dashboard/>
 			<div className="Chart">
 			  </div>	

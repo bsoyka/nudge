@@ -8,6 +8,7 @@ import {Habit, Status} from "../constants";
 import "../styles/dashboard.css";
 import "../globals.css";
 import { fetchSignInMethodsForEmail } from "firebase/auth";
+import { setUncaughtExceptionCaptureCallback } from "process";
 
 
 	
@@ -15,16 +16,18 @@ import { fetchSignInMethodsForEmail } from "firebase/auth";
 
 function Dashboard(){
 	let [getUserHabits, setUserHabits] = useState<Habit[]>([]);
-	let [getTest, setTest] = useState<number>(0);
 	useEffect(() => {
 		const fetchHabits = async () => {
 			const promise = await getHabits();
-			if(promise != undefined){
+			if(promise == null){
+				
+			}
+			else{
 				setUserHabits(promise);
 			}
 		}
 		fetchHabits();
-	}, [getUserHabits, getTest])
+	}, [])
 
 	return(
 	<div className="dashboard">
