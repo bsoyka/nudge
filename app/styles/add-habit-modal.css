@@ -57,6 +57,22 @@
 	padding: 1vh;
 }
 
+
+.plus{
+	height: 200px;
+	width: 200px;
+	transform: translate(25%, 25%);
+	border-radius: 7vh;
+	border: 3px transparent;
+}
+
+.plus:hover{
+	border-radius: 10vh;
+	transition: .7s ease;
+	border: 3px solid;
+	cursor: pointer;
+}
+
 .selected-friend-profile,
 .friend-profile:hover{
 	background-color: var(--color-primary-dark);

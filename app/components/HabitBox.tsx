@@ -4,6 +4,7 @@ import {Habit, Status} from "../constants"
 import { Check, X, CircleQuestionMark} from "lucide-react";
 import { useState } from "react";
 
+
 interface HabitBoxProps{
 	habit : Habit,
 }

@@ -12,11 +12,11 @@ interface SelectorProps{
 	getSelectedFriend : any;
 }
 
-function FriendProfileButton(name : string, getSelected: any, setSelected: any){
+function FriendProfileButton(friend : Friend, getSelected: Friend, setSelected: any){
 	return(
-		<div className={(getSelected != name ? "friend-profile" : "selected-friend-profile")} onClick={() => setSelected(name)} key={name}>
+		<div className={(getSelected == null || getSelected.username != friend.username ? "friend-profile" : "selected-friend-profile")} onClick={() => setSelected(friend)} key={friend.username}>
 			<Contact />
-			<h2>{name}</h2>
+			<h2>{friend.username}</h2>
 		</div>
 	);
 }
@@ -27,7 +27,7 @@ function FriendsListSelector({getSelectedFriend, setSelectedFriend} : SelectorPr
 
 	return(
 		<div className="friends-list">
-			{getFriend.map((friend) => FriendProfileButton(friend.username, getSelectedFriend, setSelectedFriend))}
+			{getFriend.map((friend) => FriendProfileButton(friend, getSelectedFriend, setSelectedFriend))}
 		</div>
 		
 	);
