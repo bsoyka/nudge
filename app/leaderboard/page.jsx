@@ -9,7 +9,7 @@ import { collection, getDocs } from "firebase/firestore";
 
 function Leaderboard(props){
   const [data, setData] = useState([])
-  const userRef = collection(db, "friends")
+  const userRef = collection(db, "users")
 
   useEffect(() =>{
       const getData = async()=>{

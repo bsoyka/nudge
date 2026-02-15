@@ -4,6 +4,8 @@ import React, {useState} from 'react';
 
 import {FaSearch} from "react-icons/fa";
 import "./SearchBar.css";
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import {db} from "@/firebase/auth.ts"
 
 export const SearchBar = ({setResults}) => {
     const [input, setInput] = useState("");
@@ -18,7 +20,7 @@ export const SearchBar = ({setResults}) => {
         );
 
         const querySnapshot = await getDocs(q);
-        querySnapshot.forEach(doc => ({
+        const results =  querySnapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
         }));
@@ -40,7 +42,8 @@ export const SearchBar = ({setResults}) => {
     
 
     }
-    const handleChange = (value) =>{
+    const handleChange = (e) =>{
+        const value = e.target.value;
         setInput(value);
         fetchData(value);
     }
@@ -48,7 +51,7 @@ export const SearchBar = ({setResults}) => {
         <div className="input-wrapper">
             <FaSearch id="search-icon" />
             <input placeholder = "Type to search.." value={input}
-             onChange={(e) => setInput(e.target.value)} />
+             onChange={(handleChange) }/>
         </div>
     )
 
