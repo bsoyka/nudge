@@ -20,16 +20,24 @@ function getHabitList() : Habit[]{
 
 
 
-export default function() {
+export default function Dashboard() {
 	return(
 		<>
-			<NavBar/>
+      <NavBar />
+
+      <main className="flex flex-col items-center justify-center max-w-3xl m-auto p-10">
+        <h1 className="text-2xl font-bold">Your Dashboard</h1>
+
+        <div className="text-lg mt-4">
+          Track anything you want to accomplish daily! Your friends will keep you honest, verifying whether you’ve actually completed your tasks.
+        </div>
 			<div className="dashboard">
 				{getHabitList().map((habit) => <HabitBox habit={habit} key={habit.name} />)}
 				{getHabitList().map((habit) => <HabitBox habit={habit} key={habit.name} />)}
 				{getHabitList().map((habit) => <HabitBox habit={habit} key={habit.name} />)}
 				<ModalTriggerButton/>
 			</div>
+      </main>
 		</>
 	);
 

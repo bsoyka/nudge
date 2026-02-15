@@ -32,46 +32,46 @@ export default function Home() {
   }
 
   async function handleAddFriendClick() {
-    console.log("add friend pressed")
+    console.log("add friend pressed");
     try {
       // test to add ben
-      addFriend("CPGh2ZUU48WCz59iHHSf86Jji4g2")
+      addFriend("CPGh2ZUU48WCz59iHHSf86Jji4g2");
     } catch (error: any) {
-      console.error(error.message)
+      console.error(error.message);
     }
   }
 
   async function handleAssignAuditor() {
-    console.log("auditor assign pressed")
+    console.log("auditor assign pressed");
     const habitId = "9wT1Vih6WAyaf6KeOZm0";
-    const auditorUid = "CPGh2ZUU48WCz59iHHSf86Jji4g2"
+    const auditorUid = "CPGh2ZUU48WCz59iHHSf86Jji4g2";
     try {
       // test to add ben
-      assignAuditor(habitId, auditorUid)
+      assignAuditor(habitId, auditorUid);
     } catch (error: any) {
-      console.error(error.message)
+      console.error(error.message);
     }
   }
 
   async function handleUpdateHabitStatus() {
-    console.log("update status pressed")
+    console.log("update status pressed");
     const habitId = "9wT1Vih6WAyaf6KeOZm0";
     const newStatus = 1;
     try {
       // test to add ben
-      updateHabitStatus(habitId, newStatus)
+      updateHabitStatus(habitId, newStatus);
     } catch (error: any) {
-      console.error(error.message)
+      console.error(error.message);
     }
   }
 
   async function handleGetFriends() {
-    console.log("getfreinds button pushed")
+    console.log("getfreinds button pushed");
     try {
-      const friends = getFriends()
-      console.log(friends)
+      const friends = getFriends();
+      console.log(friends);
     } catch (error: any) {
-      console.error(error.message)
+      console.error(error.message);
     }
   }
 
@@ -93,14 +93,24 @@ export default function Home() {
         <NavBar />
 
         <main className="flex flex-col items-center justify-center max-w-3xl m-auto p-10">
-          <h1>Hello, {username}!</h1>
+          <h1 className="text-3xl font-bold">Hello, {username}!</h1>
           {/* test button */}
-          <button onClick={() => signOut(auth)}>Sign out</button>
-          <button onClick={handleHabitClick}>Add Habit</button>
-          <button onClick={handleAddFriendClick}>Add Ben as friend</button>
-          <button onClick={handleAssignAuditor}>Add Ben as auditor</button>
-          <button onClick={handleUpdateHabitStatus}>update shower status</button>
-          <button onClick={handleGetFriends}>get friends</button>
+          <Button onClick={() => signOut(auth)}>Sign out</Button>
+          <Button onClick={handleHabitClick}>Add Habit</Button>
+          <Button onClick={handleAddFriendClick}>Add Ben as friend</Button>
+          <Button onClick={handleAssignAuditor}>Add Ben as auditor</Button>
+          <Button onClick={handleUpdateHabitStatus}>
+            update shower status
+          </Button>
+          <Button onClick={handleGetFriends}>get friends</Button>
+
+          <div className="text-lg mt-4">
+            Pick a habit. Add a friend. Start tracking. They’ll verify your daily check-ins to keep you honest and motivated.
+          </div>
+
+          <div className="text-lg mt-4">
+            Stumble along the way? That’s part of growth. Nudge gives you and your friends the tools you need to mend your streaks, support each other, and grow together. <strong>Welcome to the Nudge community!</strong>
+          </div>
         </main>
       </>
     );

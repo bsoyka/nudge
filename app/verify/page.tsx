@@ -38,19 +38,25 @@ export default function VerifyPage() {
       <NavBar />
 
       <main className="flex flex-col items-center justify-center max-w-3xl m-auto p-10">
-        <h1 className="text-2xl font-bold">Verify your friends&apos; habits</h1>
+        <h1 className="text-2xl font-bold">Verify Your Friends&apos; Habits</h1>
 
-        <div className="text-lg mt-4">
-          Your friends are counting on you to keep track of their progress.
-          Verify whether they&apos;ve completed their daily habits, and help
-          them mend their streaks if they haven&apos;t.
-        </div>
+        {getHabitList().length > 0 ? (
+          <>
+            <p className="text-lg mt-4">
+              Your friends have been productive, and they’re counting on you to keep them honest. Verify whether they’ve actually completed their daily habits. Not sure? Reach out to nudge them back on track.
+            </p>
 
-        <div className="dashboard">
-          {getHabitList().map((habit) => (
-            <HabitBox habit={habit} key={habit.id} />
-          ))}
-        </div>
+            <div className="dashboard">
+              {getHabitList().map((habit) => (
+                <HabitBox habit={habit} key={habit.id} />
+              ))}
+            </div>
+          </>
+        ) : (
+          <p className="text-lg mt-4">
+            There’s nothing for you to approve right now! Once your friends start completing habits, come back to this page to verify they’re on track.
+          </p>
+        )}
       </main>
     </div>
   );
