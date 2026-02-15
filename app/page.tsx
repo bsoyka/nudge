@@ -51,10 +51,10 @@ export default function Home() {
 
         <main className="flex flex-col items-center justify-center text-align-center max-w-3xl m-auto p-10">
           <h1 className="text-3xl font-bold">
-            Give your friends a <i>Nudge</i>!
+            Give your friends a <span className="uppercase font-black">Nudge</span>!
           </h1>
 
-          <div className="text-lg">
+          <div className="text-lg mt-4">
             Nudge is a collaborative habit tracking platform that keeps you
             accountable with help from your friends. Start tracking your habits
             today!
