@@ -17,6 +17,7 @@ export const loginWithGoogle = async () => {
       await setDoc(userRef, {
         uid: user.uid,
         username: user.displayName,
+        usernameLower: user.displayName?.toLowerCase(),
         photo: user.photoURL,
         score: 0,
         friends: [],
