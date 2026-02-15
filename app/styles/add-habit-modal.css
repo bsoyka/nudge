@@ -1,0 +1,23 @@
+.add-habit-modal{
+	position:fixed;
+	top:50vh;
+	left:50vw;
+	transform: translate(-50%, -50%);
+	height: 50vh;
+	width: 60vw;
+	background-color: black;
+}
+
+
+
+.blurred-box{
+	position: fixed;
+	top:0px;
+	left:0px;
+	padding: 0px;
+	margin: 0px;
+	height: 10000px;
+	width: 10000px;
+	backdrop-filter: blur(10px);
+
+}
