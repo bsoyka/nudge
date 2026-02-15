@@ -1,3 +1,5 @@
+"use client";
+
 import { Habit } from "@/app/constants";
 import { getAuth } from "firebase/auth";
 import { collection, doc, getDocs } from "firebase/firestore";

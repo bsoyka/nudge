@@ -1,3 +1,5 @@
+"use client";
+
 import { getAuth } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "./auth";

@@ -1,3 +1,5 @@
+"use client";
+
 import { getAuth } from "firebase/auth";
 import { db } from "./auth";
 import { addDoc, collection, doc, setDoc, updateDoc } from "firebase/firestore";
