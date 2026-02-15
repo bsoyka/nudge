@@ -1,0 +1,41 @@
+.friend-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 20px;
+    padding: 5em;
+    gap: 2em;
+    width: 100vw;
+    height: 100%;
+}
+
+.friend-request{
+	display: flex;
+	justify-content: flex-start;
+	gap: 20px;
+	align-items: center;
+	transition: .2s ease all;
+	font-size: 2rem;
+	padding: 20px;
+	width: auto;
+	border: 5px solid var(--color-dark);
+	border-radius: 30px;
+}
+
+
+.friend-request .profile-photo{
+	height: 80px;
+	width: 80px;
+}
+
+.friend-request h1{
+	font-size: 3rem;
+}
+
+.friend-request:hover{
+	transition: .3s ease all;
+	border-color: var(--color-dark);
+	box-shadow: 5px 5px var(--color-dark);
+}
+

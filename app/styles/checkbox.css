@@ -1,0 +1,26 @@
+.status-box{
+	transition: .3s ease;
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+	border-radius: 30px;
+}
+
+.status-box:hover{
+	border-radius: 30px;
+	transition: .3s ease;
+	border: 3px solid;
+}
+
+#check{
+	color: #26a269;
+}
+
+#question-mark{
+	color: #ffbe6f;
+}
+
+#x{
+	color: #f66151;
+
+}
