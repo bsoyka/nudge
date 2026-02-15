@@ -3,7 +3,8 @@
 import { Check, X} from "lucide-react";
 import "./pending.css";
 import "../styles/checkbox.css"
-import { Habit } from "../constants";
+import { Habit, Status } from "../constants";
+import { updateHabitStatus } from "@/firebase/edit-habit";
 
 interface PendingBoxProps{
 	habit: Habit,
@@ -23,7 +24,7 @@ function PendingBox({habit, getPending, setPending} : PendingBoxProps){
 				return true;
 			}
 		));
-		//acceptedHabit(habit);
+		updateHabitStatus(habit.hid, Status.FINISHED);
 	};
 
 	const handleClickDecline = () =>  {
@@ -36,7 +37,7 @@ function PendingBox({habit, getPending, setPending} : PendingBoxProps){
 				return true;
 			}
 		));
-		//declineHabit(habit);
+		updateHabitStatus(habit.hid, Status.INCOMPLETE);
 	};
 
 	return(

@@ -1,6 +1,8 @@
 "use client";
 import { Check, X, Contact} from "lucide-react";
 import { getFriends} from "@/firebase/get-friends";
+import { rejectFriendRequest } from "@/firebase/reject-friend-request";
+import { addFriend } from "@/firebase/add-friend";
 
 import "./social.css";
 import "../styles/checkbox.css"
@@ -24,7 +26,7 @@ function FriendRequestArea(){
 
 	const FriendRequest = ({friend} : FriendRequestProps) => {
 		const acceptFriendRequest = () => {
-			//API to accept
+		addFriend(friend.uid);
 			setFriendRequests(getFriendRequests.filter((item : Friend) => {
 				if(item.uid != friend.uid){
 					return true;
@@ -34,7 +36,7 @@ function FriendRequestArea(){
 		};
 	
 		const declineFriendRequest = () => {
-			//API to decline
+			rejectFriendRequest(friend.uid);
 			setFriendRequests(getFriendRequests.filter((item : Friend) => {
 				if(item.uid != friend.uid){
 					return true;

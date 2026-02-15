@@ -2,9 +2,6 @@ import NavBar from "../components/NavBar";
 import "../styles/dashboard.css";
 import PendingBoxes from "./PendingBoxes";
 
-
-
-
 export default function VerifyPage() {
 
 
