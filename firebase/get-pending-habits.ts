@@ -1,5 +1,5 @@
 import { getAuth } from "firebase/auth";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
 import { db } from "./auth";
 import { Habit } from "@/app/constants";
 
@@ -17,27 +17,37 @@ export const getPendingHabits = async () : Promise<Habit[] | undefined> => {
 
     let habitList : Habit[] = [];
 
-    const q = query(
-      collection(db, "users", user.uid, "habits"),
-      where("status", "==", 1)
-    );
+    const userRef = doc(db, "users", user.uid);
+    const userSnap = await getDoc(userRef)
 
-    const querySnap = await getDocs(q)
+    let habitHids = null
 
-    querySnap.forEach((habit) => {
-      const habitData = habit.data()
-      const habitItem : Habit = {
-        hid: habitData.hid,
-        habitName: habitData.habitName,
-        streak: habitData.streak,
-        viewers: habitData.viewers,
-        auditor: habitData.auditor,
-        status: habitData.status,
-        owner: habitData.owner,
-      }
+    if (userSnap.exists()) {    
+      habitHids = userSnap.data().pendingHabits
+    }
+    
+    for (const habitHid of habitHids) {
+      const q = query(
+        collection(db, "habits"),
+        where("hid", "==", habitHid)
+      );
 
-      habitList.push(habitItem);
-    })
+      const snap = await getDocs(q);
+
+      snap.forEach((habitDoc) => {
+        const hData = habitDoc.data();
+        const habitItem: Habit = {
+          hid: hData.hid,
+          habitName: hData.habitName,
+          streak: hData.streak,
+          viewers: hData.viewers,
+          auditor: hData.auditor,
+          status: hData.status,
+          owner: hData.owner
+        };
+        habitList.push(habitItem);
+      });
+    }
 
     return habitList
   } catch (error: any) {
