@@ -39,12 +39,12 @@ function Dashboard(){
 			}
 		}
 		fetchPending();
-	}, []); 
+	}, []);
 
 	function GoToPending(){
 		return(
 			<div className="pending">
-				<Link href="/verify"> You have {getNumPending} friend habits to checkout out! </Link>
+				<Link href="/verify"> You have {getNumPending} friend habits to check out! </Link>
 			</div>
 		);
 	};
