@@ -5,8 +5,8 @@ import "../globals.css";
 import HabitBox from "../components/HabitBox";
 import {Habit, Status} from "../constants";
 import {ChartAreaInteractive} from "../components/habitsChart";
-
-
+import AddHabit from "./AddHabit";
+import ModalTriggerButton from "./ModalTriggerButton";
 
 
 const testHabit1 : Habit = {name: "WorkOut", status: Status.PENDING, streak: 1, auditor: "Ben", id: 1, uid: 10};
@@ -20,6 +20,9 @@ function getHabitList() : Habit[]{
 	return testHabits;
 }
 
+
+
+
 export default function() {
 	return(
 		<>
@@ -28,6 +31,7 @@ export default function() {
 				{getHabitList().map((habit) => <HabitBox habit={habit} key={habit.name} />)}
 				{getHabitList().map((habit) => <HabitBox habit={habit} key={habit.name} />)}
 				{getHabitList().map((habit) => <HabitBox habit={habit} key={habit.name} />)}
+				<ModalTriggerButton/>
 			</div>
 			<div className="Chart">
 				  <ChartAreaInteractive/>
