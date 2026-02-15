@@ -1,6 +1,9 @@
 @import "tailwindcss";
-
+body{
+	font-size:1vw;
+}
 @theme {
+
     --color-primary: #114b5f;
     --color-primary-dark: #0b4153;
     --color-secondary: #0b908c;
@@ -8,6 +11,18 @@
 
     --color-light: #fafff9;
     --color-dark: #171a1d;
+}
+
+@property --position{
+    syntax: "<number>";
+    inherits:true;
+    initial-value: 0;
+}
+
+@property --quantity{
+    syntax:"<number>";
+    inherits:true;
+    initial-value:1;
 }
 
 /* Regenerate utilities to ensure custom colors are available */
