@@ -83,15 +83,15 @@
 	transition: .3s ease all;
 }
 
-.friends-list{
-
-	align-items:flex-start;
-	display: grid;
-	grid-template-columns: repeat(6, auto);
-	grid-template-rows: repeat(2, auto);
-	gap: 20px
+.friends-list {
+    align-items: flex-start;
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
 }
 
+<<<<<<< HEAD
 
 
 
@@ -108,4 +108,15 @@
 	width: 10000px;
 	backdrop-filter: blur(10px);
 
+=======
+.blurred-box {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 0px;
+    margin: 0px;
+    height: 10000px;
+    width: 10000px;
+    backdrop-filter: blur(10px);
+>>>>>>> main
 }

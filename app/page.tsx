@@ -44,9 +44,9 @@ export default function Home() {
   }
 
   async function handleAssignAuditor() {
-    console.log("auditor assign pressed")
+    console.log("auditor assign pressed");
     const habitId = "Hv514XKg6o3r3PVw7jnu";
-    const auditorUid = "CPGh2ZUU48WCz59iHHSf86Jji4g2"
+    const auditorUid = "CPGh2ZUU48WCz59iHHSf86Jji4g2";
     try {
       // test to add ben
       assignAuditor(habitId, auditorUid);
@@ -56,7 +56,7 @@ export default function Home() {
   }
 
   async function handleUpdateHabitStatus() {
-    console.log("update status pressed")
+    console.log("update status pressed");
     const habitId = "Hv514XKg6o3r3PVw7jnu";
     const newStatus = 1;
     try {
@@ -78,12 +78,12 @@ export default function Home() {
   }
 
   async function handleGetHabits() {
-    console.log("gethabits button pushed")
+    console.log("gethabits button pushed");
     try {
-      const habits = getHabits()
-      console.log(habits)
+      const habits = getHabits();
+      console.log(habits);
     } catch (error: any) {
-      console.error(error.message)
+      console.error(error.message);
     }
   }
 
@@ -117,11 +117,15 @@ export default function Home() {
           <Button onClick={handleGetFriends}>get friends</Button>
 
           <div className="text-lg mt-4">
-            Pick a habit. Add a friend. Start tracking. They’ll verify your daily check-ins to keep you honest and motivated.
+            Pick a habit. Add a friend. Start tracking. They’ll verify your
+            daily check-ins to keep you honest and motivated.
           </div>
 
           <div className="text-lg mt-4">
-            Stumble along the way? That’s part of growth. Nudge gives you and your friends the tools you need to mend your streaks, support each other, and grow together. <strong>Welcome to the Nudge community!</strong>
+            Stumble along the way? That’s part of growth. Nudge gives you and
+            your friends the tools you need to mend your streaks, support each
+            other, and grow together.{" "}
+            <strong>Welcome to the Nudge community!</strong>
           </div>
         </main>
 

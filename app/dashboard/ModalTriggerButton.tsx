@@ -5,16 +5,16 @@ import { useState } from "react";
 import AddHabitModal from "./AddHabit";
 import "../styles/add-habit-modal.css";
 
-
-
-function ModalTriggerButton(){
-	const [getModal, setModal] = useState(false);	
-	return(
-		<>
-			<Plus onClick={() => setModal(true) } className="plus"/> 
-			{getModal && <AddHabitModal setModalOn={setModal} getModalOn={getModal}/>}
-		</>
-	);
+function ModalTriggerButton() {
+  const [getModal, setModal] = useState(false);
+  return (
+    <>
+      <Plus onClick={() => setModal(true)} className="plus" />
+      {getModal && (
+        <AddHabitModal setModalOn={setModal} getModalOn={getModal} />
+      )}
+    </>
+  );
 }
 
-export default ModalTriggerButton
+export default ModalTriggerButton;

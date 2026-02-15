@@ -3,14 +3,13 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "./auth";
 import { Friend } from "@/app/constants";
 
-
-export const getFriends = async () : Promise<Friend[] | undefined> => {
+export const getFriends = async (): Promise<Friend[] | undefined> => {
   // get current user
   const auth = getAuth();
   const user = auth.currentUser;
 
   if (!user) {
-    throw new Error("no user signed in")
+    throw new Error("no user signed in");
   }
 
   try {
@@ -18,14 +17,14 @@ export const getFriends = async () : Promise<Friend[] | undefined> => {
 
     // get list of user's friends' id from database
     const userRef = doc(db, "users", user.uid);
-    const snap = await getDoc(userRef)
+    const snap = await getDoc(userRef);
 
     // get list of friend uids
-    let friendsUids: string[] = []
+    let friendsUids: string[] = [];
     if (snap.exists()) {
-      friendsUids = snap.data().friends
+      friendsUids = snap.data().friends;
     } else {
-      throw new Error("user does not exist in database")
+      throw new Error("user does not exist in database");
     }
 
     // iterate through friends lists
@@ -41,20 +40,19 @@ export const getFriends = async () : Promise<Friend[] | undefined> => {
 
           // add friend information to the friends list
           friendsList.push({
-            uid: friendUid, 
-            username: friendData.username, 
+            uid: friendUid,
+            username: friendData.username,
             score: friendData.score,
-            photo: friendData.photo
-          })
+            photo: friendData.photo,
+          });
         }
       } catch (error) {
-        console.error("error creating friends list")
+        console.error("error creating friends list");
       }
     }
 
-    return friendsList
-
+    return friendsList;
   } catch (error: any) {
-    console.error("error logging in with google", error.code, error.message)
+    console.error("error logging in with google", error.code, error.message);
   }
-}
+};
