@@ -17,7 +17,7 @@ function FriendRequestArea(){
 	const [getFriendRequest, setFriendRequests] = useState<Friend[]>([]);
 
 
-	
+
 
 	useEffect(() => {
 	const handleGetFriends = async () => {
@@ -40,7 +40,7 @@ function FriendRequestArea(){
 			addFriend(friend.uid);
 
 		};
-	
+
 		const declineFriendRequest = () => {
 			setFriendRequests(getFriendRequest.filter((item : Friend) => {
 				if(item.uid != friend.uid){
@@ -55,10 +55,10 @@ function FriendRequestArea(){
 			<div className="friend-request">
 				<Contact className="profile-photo"/>
 				<h1>{friend.username}</h1>
-				<X id="x" className="status-box" onClick={declineFriendRequest}/>
-				<Check id="check" className="status-box" onClick={acceptFriendRequest}/>
+				<X id="x" className="status-box cursor-pointer" onClick={declineFriendRequest}/>
+				<Check id="check" className="status-box cursor-pointer" onClick={acceptFriendRequest}/>
 			</div>
-				
+
 		);
 	}
 
