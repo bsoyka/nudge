@@ -1,25 +1,33 @@
 import { Contact } from "lucide-react"
+import { getFriends } from "@/firebase/get-friends";
+import { use, useState } from "react";
+import { Friend } from "../constants";
 
 
 
 const tempFriends = ["Ben", "Ritesh", "Aidan", "Hottie", "Man", "Bob", "John", "Peter", "Mikey"];
-function FriendProfileButton(name : string){
+
+interface SelectorProps{
+	setSelectedFriend : any;
+	getSelectedFriend : any;
+}
+
+function FriendProfileButton(friend : Friend, getSelected: Friend, setSelected: any){
 	return(
-		<div className="friend-profile">
+		<div className={(getSelected == null || getSelected.username != friend.username ? "friend-profile" : "selected-friend-profile")} onClick={() => setSelected(friend)} key={friend.username}>
 			<Contact />
-			<h2>{name}</h2>
+			<h2>{friend.username}</h2>
 		</div>
 	);
 }
 
-function getFriends() : string[]{
-	return tempFriends;
-}
+function FriendsListSelector({getSelectedFriend, setSelectedFriend} : SelectorProps){
+	const [getFriend, setFriends] = useState<Friend[]>([]);
+	getFriends().then((promiseFriends) => setFriends(promiseFriends ? promiseFriends : []));
 
-function FriendsListSelector(){
 	return(
 		<div className="friends-list">
-			{getFriends().map((name) => FriendProfileButton(name))}
+			{getFriend.map((friend) => FriendProfileButton(friend, getSelectedFriend, setSelectedFriend))}
 		</div>
 		
 	);

@@ -1,4 +1,3 @@
-
 export interface User{
 	uid: string;
 	username: string;
@@ -16,7 +15,6 @@ export interface Friend{
 	photo: string | null;
 }
 
-
 export enum Status{
 	INCOMPLETE = 0,
 	PENDING = 1,
@@ -27,6 +25,7 @@ export interface Habit{
 	hid: string;
 	habitName: string;
 	streak: number;
+
 	viewers: string[]; // uid[]
 	auditor: string; // uid[]
 	status: number;

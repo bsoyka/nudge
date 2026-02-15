@@ -1,4 +1,4 @@
-.habit-box{
+.pending-box{
 	transition: .2s ease all;
 	font-size: 2rem;
 	padding: 20px;
@@ -7,12 +7,9 @@
 	border-radius: 30px;
 }
 
-.habit-box:hover{
+.pending-box:hover{
 	transition: .3s ease all;
 	border-color: var(--color-dark);
 	box-shadow: 5px 5px var(--color-dark);
 }
 
-.habit-name{
-	border-bottom: 3px var(--color-dark) solid;
-}

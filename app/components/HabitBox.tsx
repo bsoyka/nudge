@@ -1,8 +1,10 @@
 "use client";
 import "../styles/habitbox.css";
+import "../styles/checkbox.css";
 import {Habit, Status} from "../constants"
 import { Check, X, CircleQuestionMark} from "lucide-react";
 import { useState } from "react";
+
 
 interface HabitBoxProps{
 	habit : Habit,

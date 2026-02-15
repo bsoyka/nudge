@@ -10,9 +10,9 @@ import ModalTriggerButton from "./ModalTriggerButton";
 import Footer from "../components/Footer";
 
 
-const testHabit1 : Habit = {name: "WorkOut", status: Status.PENDING, streak: 1, auditor: "Ben", id: 1, uid: 10};
-const testHabit2 : Habit = {name: "Drink", status: Status.INCOMPLETE, streak: 6, auditor: "Aidan", id: 1, uid: 10};
-const testHabit3 : Habit = {name: "Walk The Dog", status: Status.FINISHED, streak: 22, auditor: "Ritesh", id: 10, uid: 10};
+const testHabit1 : Habit = {name: "WorkOut", status: Status.PENDING, streak: 1, auditor: "Ben", id: 1};
+const testHabit2 : Habit = {name: "Drink", status: Status.INCOMPLETE, streak: 6, auditor: "Aidan", id: 1};
+const testHabit3 : Habit = {name: "Walk The Dog", status: Status.FINISHED, streak: 22, auditor: "Ritesh", id: 10};
 
 const testHabits : Habit[] = [testHabit1, testHabit2, testHabit3];
 
