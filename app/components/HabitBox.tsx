@@ -21,9 +21,9 @@ function HabitBox(habitProp: HabitBoxProps) {
 
 	  //qG4jU1gig2AoEkvlgph2
     <div className="habit-box">
-      <h1 className="habit-name"> {habitProp.habit.hid}</h1>
+      <h1 className="habit-name"> {habitProp.habit.habitName}</h1>
       <h3 className="streak-text">Streak: {habitProp.habit.streak} 🔥</h3>
-      <h3 className="auditor-text">Reviewer: {habitProp.habit.auditor}</h3>
+      <h3 className="auditor-text">Reviewer: {habitProp.habit.auditor != null && habitProp.habit.auditor.length > 25 ? habitProp.habit.auditor.slice(0, 25)  : habitProp.habit.auditor}</h3>
       {getStatus == Status.FINISHED ? (
         <Check id="check" className="status-box" />
       ) : getStatus == Status.PENDING ? (
