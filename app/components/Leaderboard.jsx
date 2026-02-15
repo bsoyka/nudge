@@ -1,8 +1,8 @@
 "use client";
-import React, { useState, useEffect } from "react";
-// import api from "../Api"; //Use this to make API calls (e.g. await api.get("/endpoint"))
+
 import ScoreItem from "./ScoreItem";
 import {db} from "@/firebase/auth.ts"
+import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import "./Leaderboard.css";
 
@@ -61,7 +61,6 @@ export function Leaderboard(props){
       */
      return (
       <>
-      <div className="leaderboard">
         <h1 className="leaderboardTitle">Leaderboard for Nudge</h1>
         {data.map(value =>
           <ScoreItem 
@@ -69,11 +68,9 @@ export function Leaderboard(props){
           user_id = {value.username}
           streak = {value.score}
           />
-
         )
         
         }
-      </div>
   
 
       </>

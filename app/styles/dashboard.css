@@ -1,11 +1,51 @@
 .dashboard {
-    display: flex;
+	margin:0px;
+	padding:0px;
+    display: grid;
+	height: 100vh;
+	background-color: lightgray;
+	grid-template-columns: repeat(10, 10vw);
+	grid-template-rows: repeat(10, 10vh);
+}
+
+.habits{
+	grid-column: 1/9;
+	grid-row: 1/1;
+	display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
-    margin: 20px;
-    padding: 5em;
+	padding: 1em;
     gap: 2em;
-    width: 100vw;
-    height: 100%;
 }
+
+.leaderboard{
+	background-color: var(--color-primary-dark);
+	font-size: 1.4vw;
+	color: var(--color-light);
+	grid-column: 9/11;
+	border-left: 0.3vh solid gray;
+	border-bottom: 0.3vh solid gray;
+	grid-row: 2 / 7;
+}
+
+.pending{
+	border-left: 0.3vh solid gray;
+	border-bottom: 0.3vh solid gray;
+	padding: 1vh;
+	background-color: lightyellow;
+	grid-column: 9/11;
+	grid-row: 1/1;
+	font-size: 1.6vw;
+	font-weight: 500;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.pending:hover{
+	border-left: 0.6vh solid black;
+	border-bottom: 0.6vh solid black;
+}
+

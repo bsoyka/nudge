@@ -50,12 +50,12 @@ export const SearchBar = () => {
       </div>
       <div>
         {userList?.map((user) => (
-          <button key={user.uid} onClick={() => handleFriendRequest(user.uid)}>
+          <button key={user.uid} onClick={() => handleFriendRequest(user.uid)} className="cursor-pointer">
             <SearchCard username={user.username} photo={user.photo}/>
           </button>
         ))}
       </div>
     </div>
-    
+
   );
 };
