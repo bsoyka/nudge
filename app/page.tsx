@@ -35,7 +35,7 @@ export default function Home() {
       <>
         <NavBar />
 
-        <main className="flex flex-col items-center justify-center text-align-center max-w-3xl m-auto p-10">
+        <main className="flex flex-col items-center justify-center max-w-3xl m-auto p-10">
           <h1>Hello, {username}!</h1>
           <Button onClick={() => signOut(auth)} className="mt-5">
             Sign out
@@ -49,7 +49,7 @@ export default function Home() {
       <>
         <NavBar />
 
-        <main className="flex flex-col items-center justify-center text-align-center max-w-3xl m-auto p-10">
+        <main className="flex flex-col items-center justify-center max-w-3xl m-auto p-10">
           <h1 className="text-3xl font-bold">
             Give your friends a{" "}
             <span className="uppercase font-black">Nudge</span>!
