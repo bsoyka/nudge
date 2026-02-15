@@ -33,5 +33,4 @@ function FriendsListSelector({getSelectedFriend, setSelectedFriend} : SelectorPr
 	);
 }
 
-
 export default FriendsListSelector;

@@ -49,5 +49,4 @@ function AddHabitModal({getModalOn, setModalOn ,getHabit, setHabit} : AddHabitPr
 
 }
 
-
 export default AddHabitModal;

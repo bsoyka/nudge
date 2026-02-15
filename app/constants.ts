@@ -8,11 +8,11 @@ export interface User{
 	friendRequests: string[]; // uid[]
 }
 
-export interface Friend{
-	uid: string;
-	username: string;
-	score: number;
-	photo: string | null;
+export interface Friend {
+  uid: string;
+  username: string;
+  score: number;
+  photo: string | null;
 }
 
 export enum Status{
@@ -31,5 +31,3 @@ export interface Habit{
 	status: number;
 	owner: string; // uid
 }
-
-
