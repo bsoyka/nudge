@@ -33,7 +33,6 @@ export interface Habit {
   hid: string;
   habitName: string;
   streak: number;
-
   viewers: string[]; // uid[]
   auditor: string; // uid[]
   status: number;
