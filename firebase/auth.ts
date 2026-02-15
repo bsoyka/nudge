@@ -15,13 +15,13 @@ const firebaseConfig = {
   storageBucket: "nudge-e8a0d.firebasestorage.app",
   messagingSenderId: "42322066479",
   appId: "1:42322066479:web:4192a256adaee0f8041ada",
-  measurementId: "G-4PVV962GYP"
+  measurementId: "G-4PVV962GYP",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app)
-export const db = getFirestore(app)
+export const auth = getAuth(app);
+export const db = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
 
 // const analytics = getAnalytics(app);
