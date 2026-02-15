@@ -99,27 +99,31 @@ export const resetStreak = async (hid: string): Promise<void> => {
   }
 };
 
-export const updateHabitStatus = async (hid: string, newStatus: number) => {
+export const updateHabitStatus = async (hid: string, ownerUid: string, newStatus: number) => {
   try {
     // get user ref in db
-    const userRef = getUserRef();
-    if (!userRef) {
+    const auditorRef = getUserRef();
+    if (!auditorRef) {
       throw new Error("user does not exist");
     }
 
+    const habitRef = doc(db, "users", ownerUid, "habits", hid);
+
+    // const auditorRef = doc(db, "users", user.uid)
+
     // get user refrenece in db
-    const habitRef = doc(userRef, "habits", hid);
+    // const habitRef = doc(userRef, "habits", hid);
 
     // add habit to the user's habit collection
     await updateDoc(habitRef, {
       status: newStatus,
     });
 
-    const habitSnap = await getDoc(habitRef);
+    // const habitSnap = await getDoc(habitRef);
 
-    if (habitSnap.exists()) {
-      const auditorUid = habitSnap.data().auditor;
-      const auditorRef = doc(db, "users", auditorUid);
+    // if (habitSnap.exists()) {
+      // const auditorUid = habitSnap.data().auditor;
+      // const auditorRef = doc(db, "users", auditorUid);
 
       // if the status becomes pending, add it to the auditor's pending list
       if (newStatus == 1) {
@@ -132,7 +136,7 @@ export const updateHabitStatus = async (hid: string, newStatus: number) => {
         await updateDoc(auditorRef, {
           pendingHabits: arrayRemove(hid),
         });
-      }
+      // }
     } else {
       throw new Error("auditor does not exist");
     }
