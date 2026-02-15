@@ -1,5 +1,5 @@
 import { getAuth } from "firebase/auth";
-import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { db } from "./auth";
 
 export const makeFriendRequest = async (friendUid: string) => {
@@ -21,11 +21,11 @@ export const makeFriendRequest = async (friendUid: string) => {
 
     await updateDoc(friendRef, {
       friendRequests: arrayUnion(user.uid)
-    })
+    });
 
     console.log("friend req sent to", friendUid)
 
   } catch (error: any) {
     console.error("error making friend request", error.code, error.message);
   }
-}
+};

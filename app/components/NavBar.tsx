@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function NavBarLink({ path, name }: { path: string; name: string }) {
   return (
-    <Link className="border-b-2 border-dark" href={{ pathname: path }}>
+    <Link className="hover:font-bold transition-all" href={{ pathname: path }}>
       {name}
     </Link>
   );
@@ -12,7 +12,7 @@ function NavBarLink({ path, name }: { path: string; name: string }) {
 
 function NavBar() {
   return (
-    <nav className="flex w-full h-14 gap-3 justify-start items-center bg-primary p-5">
+    <nav className="flex w-full h-17 justify-start items-center bg-primary px-25 py-6 text-light">
       <Link href="/" className="flex items-center h-full mr-4">
         <Image
           src="/nudge-logo.svg"
@@ -22,10 +22,12 @@ function NavBar() {
           className="h-full w-auto"
         />
       </Link>
-      <NavBarLink path="/dashboard" name="Dashboard" />
-      <NavBarLink path="/leaderboard" name="Leaderboard" />
-      <NavBarLink path="/searchbar" name="Search" />
-      <NavBarLink path="/verify" name="Verify for Friends" />
+      <div className="flex gap-12 ml-auto text-lg">
+        <NavBarLink path="/dashboard" name="Dashboard" />
+        <NavBarLink path="/leaderboard" name="Leaderboard" />
+        <NavBarLink path="/searchbar" name="Search" />
+        <NavBarLink path="/verify" name="Verify for Friends" />
+      </div>
     </nav>
   );
 }

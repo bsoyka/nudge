@@ -1,16 +1,16 @@
 import { Habit } from "@/app/constants";
 import { getAuth } from "firebase/auth";
-import { collection, doc, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "./auth";
 
-export const getHabits = async () : Promise<Habit[] | undefined> => {
+export const getHabits = async (): Promise<Habit[] | undefined> => {
   // get current user
   const auth = getAuth();
   const user = auth.currentUser;
 
   if (!user) {
-    console.log("no user signed in")
-    return 
+    console.log("no user signed in");
+    return;
   }
 
   try {
@@ -19,8 +19,8 @@ export const getHabits = async () : Promise<Habit[] | undefined> => {
     const habitSnap = await getDocs(habitRef);
 
     // make a list of hids
-    const habits = habitSnap.docs.map(doc => ({
-      ...doc.data()
+    const habits = habitSnap.docs.map((doc) => ({
+      ...doc.data(),
     }));
 
     // make a list of Habit items
@@ -33,15 +33,14 @@ export const getHabits = async () : Promise<Habit[] | undefined> => {
         viewers: habit.viewers,
         auditor: habit.auditor,
         status: habit.status,
-        owner: habit.owner
-      }
+        owner: habit.owner,
+      };
 
       habitList.push(habitItem);
     }
 
     return habitList;
-    
   } catch (error: any) {
-    console.error(error.code, error.message)
+    console.error(error.code, error.message);
   }
-}
+};

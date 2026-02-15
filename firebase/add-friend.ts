@@ -1,4 +1,4 @@
-import { getAuth, User } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { db } from "./auth";
 import {
   arrayUnion,

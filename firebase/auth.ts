@@ -1,6 +1,5 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -15,13 +14,11 @@ const firebaseConfig = {
   storageBucket: "nudge-e8a0d.firebasestorage.app",
   messagingSenderId: "42322066479",
   appId: "1:42322066479:web:4192a256adaee0f8041ada",
-  measurementId: "G-4PVV962GYP"
+  measurementId: "G-4PVV962GYP",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app)
-export const db = getFirestore(app)
+export const auth = getAuth(app);
+export const db = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
-
-// const analytics = getAnalytics(app);

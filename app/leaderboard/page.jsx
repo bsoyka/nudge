@@ -1,9 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 // import api from "../Api"; //Use this to make API calls (e.g. await api.get("/endpoint"))
 import ScoreItem from "../components/ScoreItem";
 import { mockUsers } from "../../data/MockUsers";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 const Leaderboard = () => {
   {
@@ -32,8 +33,12 @@ const Leaderboard = () => {
     <>
       <NavBar />
 
+      <main className="flex flex-col items-center justify-center max-w-3xl m-auto p-10">
+        <h1 className="text-2xl font-bold">Leaderboard</h1>
+
+        <p className="text-lg mt-4">What’s life without friendly competition? See how productive you and your friends have been!</p>
+
       <div className="leaderboard">
-        <h1 className="leaderboardTitle">Leaderboard for Nudge</h1>
         {mockUsers.map((score) => (
           <ScoreItem
             key={score.id}
@@ -41,7 +46,10 @@ const Leaderboard = () => {
             streak={score.streak}
           />
         ))}
-      </div>
+        </div>
+      </main>
+
+      <Footer />
     </>
   );
 };
