@@ -4,6 +4,8 @@ import { FaSearch } from "react-icons/fa";
 import "./SearchBar.css";
 import { SearchUser } from "../constants";
 import { getNamesThatStartWith } from "@/firebase/get-names";
+import SearchCard from "./SearchCard";
+import { makeFriendRequest } from "@/firebase/make-friend-request";
 
 export const SearchBar = () => {
   const [input, setInput] = useState<string>("");
@@ -26,9 +28,19 @@ export const SearchBar = () => {
     setInput(e.target.value);
   }
 
+  async function handleFriendRequest(friendUid: string) {
+    console.log("friend request button pressed")
+    try {
+      // test to add ben
+      makeFriendRequest(friendUid)
+    } catch (error: any) {
+      console.error(error.message)
+    }
+  }
+
   return (
-    <div className="flex flex-col">
-      <div className="input-wrapper">
+    <div className="flex flex-col m-5">
+      <div className="input-wrapper mb-5">
         <FaSearch id="search-icon" />
         <input
           placeholder="Type to search.."
@@ -38,9 +50,9 @@ export const SearchBar = () => {
       </div>
       <div>
         {userList?.map((user) => (
-          <div key={user.uid}>
-            {user.username}
-          </div>
+          <button key={user.uid} onClick={() => handleFriendRequest(user.uid)}>
+            <SearchCard username={user.username} photo={user.photo}/>
+          </button>
         ))}
       </div>
     </div>

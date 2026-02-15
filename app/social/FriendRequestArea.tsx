@@ -1,6 +1,6 @@
 "use client";
 import { Check, X, Contact} from "lucide-react";
-import { getFriends} from "@/firebase/get-friends";
+import { getFriendRequests } from "@/firebase/get-friend-requests";
 import { rejectFriendRequest } from "@/firebase/reject-friend-request";
 import { addFriend } from "@/firebase/add-friend";
 
@@ -16,12 +16,13 @@ interface FriendRequestProps{
 
 function FriendRequestArea(){
 
-	const [getFriendRequests, setFriendRequests] = useState<Friend[]>([]);
+	const [getFriendRequest, setFriendRequests] = useState<Friend[]>([]);
 	const handleGetFriends = async () => {
-		const serverFriends = await getFriends();
+		const serverFriends = await getFriendRequests();
 		if(serverFriends != null){
 			setFriendRequests(serverFriends);
 		}
+		handleGetFriends();
 	};
 
 	const FriendRequest = ({friend} : FriendRequestProps) => {
