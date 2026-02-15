@@ -1,18 +1,18 @@
-.add-habit-modal{
-	color: var(--color-dark);
-	position:fixed;
-	display: flex;
-	gap:30px;
-	flex-direction: column;
-	top:50vh;
-	left:50vw;
-	transform: translate(-50%, -50%);
-	height: 50vh;
-	width: 60vw;
-	background-color: var(--color-primary);
-	border: solid 1vh var(--color-dark);
-	border-radius: 7vh;
-	padding: 5vh;
+.add-habit-modal {
+    color: var(--color-dark);
+    position: fixed;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    height: 50vh;
+    width: 60vw;
+    background-color: var(--color-primary);
+    border: solid 1vh var(--color-dark);
+    border-radius: 7vh;
+    padding: 5vh;
 }
 
 .add-habit-modal input{
@@ -50,11 +50,10 @@
 	font-size: 3rem;
 }
 
-
-.friend-profile{
-	transition: .3s ease all;
-	border: solid var(--color-dark) 0.5vh;
-	padding: 1vh;
+.friend-profile {
+    transition: 0.3s ease all;
+    border: solid var(--color-dark) 0.5vh;
+    padding: 1vh;
 }
 
 
@@ -83,13 +82,12 @@
 	transition: .3s ease all;
 }
 
-.friends-list{
-
-	align-items:flex-start;
-	display: grid;
-	grid-template-columns: repeat(6, auto);
-	grid-template-rows: repeat(2, auto);
-	gap: 20px
+.friends-list {
+    align-items: flex-start;
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
 }
 
 

@@ -41,7 +41,7 @@ function PendingBox({habit, getPending, setPending} : PendingBoxProps){
 
 	return(
 		<div className="pending-box">
-			<h1> {habit.name} </h1>
+			<h1> {habit.habitName} </h1>
 			<h2> Buddy name </h2>
 			<div className="flex gap-10">
 				<Check className="status-box" id = "check" onClick={handleClickAccept}/>

@@ -21,4 +21,4 @@ function ModalTriggerButton({setHabits, getHabits} : ModalProps){
 	);
 }
 
-export default ModalTriggerButton
+export default ModalTriggerButton;
