@@ -44,4 +44,4 @@ export const addHabit = async (
   } catch (error: any) {
     console.error("error logging in with google", error.code, error.message);
   }
-}
+};
