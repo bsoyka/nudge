@@ -10,7 +10,7 @@ export default function Button({
   type = "button",
   ...rest
 }: ButtonProps) {
-  const combinedClassName = `bg-secondary text-white px-4 py-2 rounded-md hover:bg-dark cursor-pointer ${className || ""}`;
+  const combinedClassName = `bg-secondary text-white px-4 py-2 rounded-md hover:bg-secondary-dark cursor-pointer ${className || ""}`;
 
   return (
     <button type={type} className={combinedClassName} {...rest}>
