@@ -1,0 +1,25 @@
+import { getAuth } from "firebase/auth";
+import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "./auth";
+
+export const makeFriendRequest = async (friendUid: string) => {
+  // get current user
+  const auth = getAuth();
+  const user = auth.currentUser;
+
+  if (!user) {
+    console.log("no user signed in");
+    return;
+  }
+
+  try {
+    const friendRef = doc(db, "users", friendUid);
+
+    await updateDoc(friendRef, {
+      friendRequests: arrayUnion(user.uid)
+    })
+
+  } catch (error: any) {
+    console.error("error making friend request", error.code, error.message);
+  }
+}
