@@ -1,19 +1,7 @@
 import { Contact } from "lucide-react";
 import { getFriends } from "@/firebase/get-friends";
-import { use, useState } from "react";
+import { useState } from "react";
 import { Friend } from "../constants";
-
-const tempFriends = [
-  "Ben",
-  "Ritesh",
-  "Aidan",
-  "Hottie",
-  "Man",
-  "Bob",
-  "John",
-  "Peter",
-  "Mikey",
-];
 
 interface SelectorProps {
   setSelectedFriend: any;

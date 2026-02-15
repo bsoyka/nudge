@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 // import api from "../Api"; //Use this to make API calls (e.g. await api.get("/endpoint"))
 import ScoreItem from "../components/ScoreItem";
 import { mockUsers } from "../../data/MockUsers";

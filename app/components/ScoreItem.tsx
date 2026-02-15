@@ -1,5 +1,3 @@
-import React from "react";
-
 type ScoreItemProps = {
   user_id: string;
   streak: number;

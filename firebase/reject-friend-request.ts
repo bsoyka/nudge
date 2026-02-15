@@ -1,7 +1,6 @@
 import { getAuth } from "firebase/auth";
-import { arrayRemove, doc, getDoc, updateDoc } from "firebase/firestore";
+import { arrayRemove, doc, updateDoc } from "firebase/firestore";
 import { db } from "./auth";
-import { getFriendRequests } from "./get-friend-requests";
 
 export const rejectFriendRequest = async (
   rejectedUid: string,
