@@ -14,7 +14,10 @@ function ModalTriggerButton({ setHabits, getHabits }: ModalProps) {
   const [getModal, setModal] = useState(false);
   return (
     <>
-      <Plus onClick={() => setModal(true)} className="plus" />
+	  <div className="plus">
+      	<Plus onClick={() => setModal(true)} className="plusplus"/>
+		<h1>Add a Habit</h1> 
+	  </div>
       {getModal && (
         <AddHabitModal
           getHabit={getHabits}
