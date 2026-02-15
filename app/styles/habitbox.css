@@ -1,11 +1,14 @@
 .habit-box {
-	background-color: white;
+	background-color: var(--color-background-secondary);
     transition: 0.3s ease all;
     font-size: 2rem;
     padding: 20px;
     width: fit-content;
 	min-width: 300px;
     border: 5px solid transparent;
+	display: grid;
+	grid-template-columns: repeat(2, 50%);
+	grid-template-rows: repeat(3, 33%);
 }
 
 

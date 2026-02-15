@@ -1,6 +1,7 @@
 @import "tailwindcss";
 body{
 	font-size:1vw;
+	background-color: var(--color-background-secondary);
 }
 @theme {
 
@@ -8,7 +9,8 @@ body{
     --color-primary-dark: #0b4153;
     --color-secondary: #0b908c;
     --color-secondary-dark: #007f7b;
-
+	--color-background: #e4e4e4;
+	--color-background-secondary: #fafafa;
     --color-light: #fafff9;
     --color-dark: #171a1d;
 }
