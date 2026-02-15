@@ -1,5 +1,5 @@
 import { getAuth } from "firebase/auth";
-import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
+import { collection, collectionGroup, doc, getDoc, getDocs, query, where } from "firebase/firestore";
 import { db } from "./auth";
 import { Habit } from "@/app/constants";
 
@@ -20,33 +20,40 @@ export const getPendingHabits = async () : Promise<Habit[] | undefined> => {
     const userRef = doc(db, "users", user.uid);
     const userSnap = await getDoc(userRef)
 
-    let habitHids = null
-
+    let habitHids : string[] = []
+    let friendsList : string[] = []
     if (userSnap.exists()) {    
       habitHids = userSnap.data().pendingHabits
+      friendsList = userSnap.data().friends
     }
-    
+
+    // console.log("habits id", habitHids)
+    // console.log("friends list", friendsList)
+
     for (const habitHid of habitHids) {
       const q = query(
-        collection(db, "habits"),
+        collectionGroup(db, "habits"),
         where("hid", "==", habitHid)
       );
 
       const snap = await getDocs(q);
+      // console.log(snap)
 
-      snap.forEach((habitDoc) => {
-        const hData = habitDoc.data();
-        const habitItem: Habit = {
-          hid: hData.hid,
-          habitName: hData.habitName,
-          streak: hData.streak,
-          viewers: hData.viewers,
-          auditor: hData.auditor,
-          status: hData.status,
-          owner: hData.owner
-        };
-        habitList.push(habitItem);
-      });
+      snap.forEach((habit) => {
+        const habitData = habit.data()
+        if (habitHid == habitData.hid) {
+          const habitItem: Habit = {
+            hid: habitData.hid,
+            habitName: habitData.habitName,
+            streak: habitData.streak,
+            viewers: habitData.viewers,
+            auditor: habitData.auditor,
+            status: habitData.status,
+            owner: habitData.owner
+          };
+          habitList.push(habitItem);
+        }
+      })
     }
 
     return habitList
