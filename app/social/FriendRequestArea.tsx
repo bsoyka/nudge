@@ -7,16 +7,19 @@ import { addFriend } from "@/firebase/add-friend";
 import "./social.css";
 import "../styles/checkbox.css"
 import { Friend } from "../constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface FriendRequestProps{
 	friend : Friend;
 }
-
-
 function FriendRequestArea(){
 
 	const [getFriendRequest, setFriendRequests] = useState<Friend[]>([]);
+
+
+	
+
+	useEffect(() => {
 	const handleGetFriends = async () => {
 		const serverFriends = await getFriendRequests();
 		if(serverFriends != null){
@@ -24,26 +27,29 @@ function FriendRequestArea(){
 		}
 		handleGetFriends();
 	};
-
+    handleGetFriends();
+  }, []);
 	const FriendRequest = ({friend} : FriendRequestProps) => {
 		const acceptFriendRequest = () => {
-		addFriend(friend.uid);
-			setFriendRequests(getFriendRequest.filter((item : Friend) => {
+						setFriendRequests(getFriendRequest.filter((item : Friend) => {
 				if(item.uid != friend.uid){
 					return true;
 				}
 				return false;
 			}))
+			addFriend(friend.uid);
+
 		};
 	
 		const declineFriendRequest = () => {
-			rejectFriendRequest(friend.uid);
 			setFriendRequests(getFriendRequest.filter((item : Friend) => {
 				if(item.uid != friend.uid){
 					return true;
 				}
 				return false;
 			}))
+
+			rejectFriendRequest(friend.uid);
 		};
 		return(
 			<div className="friend-request">
