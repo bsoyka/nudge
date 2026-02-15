@@ -12,6 +12,7 @@ import { getFriends } from "@/firebase/get-friends";
 import Button from "./components/Button";
 import Footer from "./components/Footer";
 import { getHabits } from "@/firebase/get-habits";
+import { getFriendRequests } from "@/firebase/get-friend-requests";
 
 export default function Home() {
   const auth = getAuth();
@@ -87,6 +88,16 @@ export default function Home() {
     }
   }
 
+  async function handleGetFriendRequests() {
+    console.log("get friend request button pushed");
+    try {
+      const habits = getFriendRequests();
+      console.log(habits);
+    } catch (error: any) {
+      console.error(error.message);
+    }
+  }
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
@@ -115,6 +126,8 @@ export default function Home() {
             update shower status
           </Button>
           <Button onClick={handleGetFriends}>get friends</Button>
+          <Button onClick={handleGetFriendRequests}>get friend requests</Button>
+
 
           <div className="text-lg mt-4">
             Pick a habit. Add a friend. Start tracking. They’ll verify your
