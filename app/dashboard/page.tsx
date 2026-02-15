@@ -2,32 +2,23 @@
 import NavBar from "../components/NavBar";
 import "../styles/dashboard.css";
 import "../globals.css";
-import {ChartAreaInteractive} from "../components/habitsChart";
 import Dashboard from "./Dashboard";
+import Footer from "../components/Footer";
 
-/*
-const testHabit1 : Habit = {name: "WorkOut", status: Status.PENDING, streak: 1, auditor: "Ben", id: 1};
-const testHabit2 : Habit = {name: "Drink", status: Status.INCOMPLETE, streak: 6, auditor: "Aidan", id: 1};
-const testHabit3 : Habit = {name: "Walk The Dog", status: Status.FINISHED, streak: 22, auditor: "Ritesh", id: 10};
-*/
+export default function DashboardPage() {
+  return (
+    <>
+      <NavBar />
 
-//const testHabits : Habit[] = [testHabit1, testHabit2, testHabit3];
+      <h1 className="text-2xl font-bold">Your Dashboard</h1>
+      <div className="text-lg mt-4">
+        Track anything you want to accomplish daily! Your friends will keep you
+        honest, verifying whether you’ve actually completed your tasks.
+      </div>
 
+      <Dashboard />
 
-
-
-
-export default function() {
-
-	return(
-		<>
-			<NavBar/>
-						
-			<Dashboard/>
-			<div className="Chart">
-			  </div>	
-	
-		</>
-	);
-
+      <Footer />
+    </>
+  );
 }
